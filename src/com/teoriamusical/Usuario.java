@@ -86,7 +86,8 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 
 	@Override
 	public void acessarPerfil() {
-		// TODO Auto-generated method stub
+		Perfil perfil = new Perfil();
+		perfil.perfilUsuario(this);
 		
 	}
 	

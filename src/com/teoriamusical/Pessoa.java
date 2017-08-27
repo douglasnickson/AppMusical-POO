@@ -13,6 +13,18 @@ public abstract class Pessoa {
 		this.cpf = cpf;
 		this.profissao = "Nao Informado";
 	}
+	
+	public void fazLogin() {
+		System.out.println("Login Realizado!");
+	}
+	
+	public void fazLogout() {
+		System.out.println("Logout Realizado");
+	}
+	
+	public void fazCadastro() {
+		System.out.println("Cadastro Realizado");
+	}
 
 	public String getNome() {
 		return nome;
