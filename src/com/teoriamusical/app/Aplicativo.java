@@ -5,7 +5,7 @@ import com.teoriamusical.pessoas.Usuario;
 public interface Aplicativo {
 	public void mostrarModulo();
 	public void acessarModulo();
-	public void cadastrarModulo(int index, String nome, boolean ativo, boolean premium);
+	public void cadastrarModulo(Usuario usuario, int index, String nome, boolean ativo, boolean premium);
 	public void mostrarAssunto();
 	public void acessarAssunto();
 	public void cadastrarAssunto();

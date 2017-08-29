@@ -50,7 +50,7 @@ public class Interface implements Aplicativo{
 	}
 	
 	@Override
-	public void cadastrarModulo(int index, String nome, boolean ativo, boolean premium) {
+	public void cadastrarModulo(Usuario usuario, int index, String nome, boolean ativo, boolean premium) {
 		if(index < 10 && this.modulo[index] == null) {
 			this.modulo[index] = new Modulo(nome, ativo, premium);
 			System.out.println("Modulo Cadastrado com Sucesso!");

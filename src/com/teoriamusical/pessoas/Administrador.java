@@ -49,8 +49,7 @@ public class Administrador extends Usuario implements AcoesAdministrador{
 	//Esse metodo faz os cadastros dos modulos do app
 	@Override
 	public void cadastraModulo(int index, String nome, boolean ativo, boolean premium) {
-		Interface app = new Interface();
-		app.cadastrarModulo(index, nome, ativo, premium);
+
 	}
 
 	@Override

@@ -23,13 +23,12 @@ public class Main {
 		//Acoes do Administrador
 		admin[0].fazCadastro();
 		admin[0].fazLogin();
-		
-		//Cadastrando Modulo
-		admin[0].cadastraModulo(0, "Notas Musicais", true, false);
+
 		
 		//Se o usuario estiver logado abre a interface do App
 		if(usuario[0].getStatus()) {
 			Interface app = new Interface();
+			app.cadastrarModulo(admin[0], 0, "Notas Musicais", true, false);
 			app.mostrarModulo();
 		}
 		
