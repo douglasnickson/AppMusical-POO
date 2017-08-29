@@ -6,6 +6,9 @@ public class Administrador extends Pessoa implements AcoesAdministrador{
 	private String email;
 	private boolean status;
 	private boolean cadastro;
+	private Modulo modulo[] = new Modulo[10];
+	private Assunto assunto[] = new Assunto[10];
+	private Exercicio exercicio[] = new Exercicio[10];
 	
 	//Metodo construtor
 	public Administrador(String nome, int idade, int cpf,  String login, String senha, String email) {
@@ -58,9 +61,14 @@ public class Administrador extends Pessoa implements AcoesAdministrador{
 		}
 	}
 	
+	//Esse metodo faz os cadastros dos modulos do app
 	@Override
-	public void cadastraModulo() {
-		// TODO Auto-generated method stub
+	public void cadastraModulo(int index, String nome, boolean ativo, boolean premium) {
+		if(index < 10 && modulo[index] == null) {
+			modulo[index] = new Modulo(nome, ativo, premium);
+		}else {
+			System.out.println("Numero Maximo de Modulos Atingido!");
+		}
 		
 	}
 
