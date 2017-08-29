@@ -1,12 +1,12 @@
-package com.teoriamusical;
+package com.teoriamusical.pessoas;
 
 public class Usuario extends Pessoa implements AcoesUsuario{
-	private String login;
-	private String email;
-	private String senha;
-	private boolean status;
-	private boolean assinante;
-	private boolean cadastro;
+	protected String login;
+	protected String email;
+	protected String senha;
+	protected boolean status;
+	protected int tipo_usuario;
+	protected boolean cadastro;
 	
 	//Metodo construtor
 	public Usuario(String nome, int idade, int cpf, String login, String email, String senha) {
@@ -15,7 +15,7 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 		this.email = email;
 		this.senha = senha;
 		this.status = false;
-		this.assinante = false;
+		this.tipo_usuario = 3;
 		this.cadastro = false;
 	}
 	
@@ -23,7 +23,7 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 	@Override
 	public String toString() {
 		return "Usuario [login=" + login + ", email=" + email + ", senha=" + senha + ", status=" + status
-				+ ", assinante=" + assinante + ",cadastro=" + cadastro + ", nome=" + super.nome + ", idade=" + super.idade + ", cpf=" + super.cpf
+				+ ", assinante=" + tipo_usuario + ",cadastro=" + cadastro + ", nome=" + super.nome + ", idade=" + super.idade + ", cpf=" + super.cpf
 				+ ", profissao=" + super.profissao + "]";
 	}
 	
@@ -35,6 +35,7 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 		if(this.getCadastro()) {
 			this.setStatus(true);
 			System.out.println("Logado com Sucesso!");
+			System.out.println("Entrando no App....");
 		}else {
 			System.out.println("Faca o Cadastro antes de Logar!");
 		}
@@ -83,13 +84,6 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void acessarPerfil() {
-		Perfil perfil = new Perfil();
-		perfil.perfilUsuario(this);
-		
-	}
 	
 	//Metodos de Acessos
 	public String getLogin() {
@@ -124,12 +118,12 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 		this.status = status;
 	}
 
-	public boolean getAssinante() {
-		return assinante;
+	public int getTipoUsuario() {
+		return tipo_usuario;
 	}
 
-	public void setAssinante(boolean assinante) {
-		this.assinante = assinante;
+	public void setTipoUsuario(int tipo_usuario) {
+		this.tipo_usuario = tipo_usuario;
 	}
 
 	public boolean getCadastro() {

@@ -1,4 +1,4 @@
-package com.teoriamusical;
+package com.teoriamusical.pessoas;
 
 public abstract class Pessoa {
 	protected String nome;

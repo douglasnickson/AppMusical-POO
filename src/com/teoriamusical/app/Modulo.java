@@ -1,4 +1,4 @@
-package com.teoriamusical;
+package com.teoriamusical.app;
 
 import java.util.ArrayList;
 
