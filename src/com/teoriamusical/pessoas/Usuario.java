@@ -4,13 +4,13 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 	protected String login;
 	protected String email;
 	protected String senha;
-	protected boolean status;
-	protected int tipo_usuario;
-	protected boolean cadastro;
+	protected boolean status; //Logado ou Nao
+	protected int tipo_usuario; //Tipo de Usuario
+	protected boolean cadastro; //Cadastrado ou Nao
 	
 	//Metodo construtor
-	public Usuario(String nome, int idade, int cpf, String login, String email, String senha) {
-		super(nome, idade, cpf);
+	public Usuario(String nome, int idade, String cpf, String login, String email, String senha) {
+		super(nome);
 		this.login = login;
 		this.email = email;
 		this.senha = senha;
@@ -19,6 +19,16 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 		this.cadastro = false;
 	}
 	
+	public Usuario(String nome, int idade, String cpf, String login, String email, String senha, int tipoUsuario) {
+		super(nome);
+		this.login = login;
+		this.email = email;
+		this.senha = senha;
+		this.status = false;
+		this.tipo_usuario = tipoUsuario;
+		this.cadastro = false;
+	}
+
 	//Metodo toString
 	@Override
 	public String toString() {

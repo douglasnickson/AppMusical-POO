@@ -3,14 +3,13 @@ package com.teoriamusical.pessoas;
 public abstract class Pessoa {
 	protected String nome;
 	protected int idade;
-	protected int cpf;
+	protected String cpf;
 	protected String profissao;
 	
-	public Pessoa(String nome, int idade, int cpf) {
+	public Pessoa(String nome) {
 		super();
 		this.nome = nome;
-		this.idade = idade;
-		this.cpf = cpf;
+		this.cpf = "Nao Informado";
 		this.profissao = "Nao Informado";
 	}
 	
@@ -42,11 +41,11 @@ public abstract class Pessoa {
 		this.idade = idade;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

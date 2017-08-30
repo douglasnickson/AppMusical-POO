@@ -1,6 +1,6 @@
 package com.teoriamusical;
 
-import com.teoriamusical.app.Interface;
+import com.teoriamusical.app.Aplicativo;
 import com.teoriamusical.pessoas.Administrador;
 import com.teoriamusical.pessoas.Usuario;
 
@@ -10,25 +10,28 @@ public class Main {
 		
 		//Criando Usuarios
 		Usuario usuario[] = new Usuario[5];
-		usuario[0] = new Usuario("Douglas", 25, 12345, "douglas", "douglas@gmail.com", "12345");
+		usuario[0] = new Usuario("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345", 1);
 		
-		//Criando Administrador
-		Administrador admin[] = new Administrador[2];
-		admin[0] = new Administrador("Nickson", 28, 123456, "nickson", "douglas", "douglas@admin.com");
+		//Criando Administradores
+		Administrador admin[] = new Administrador[5];
+		admin[0] = new Administrador("Nickson", "dnick", "nickson@admin.com", "123545");
 		
-		//Acoes do Usuario
-		usuario[0].fazCadastro();
-		usuario[0].fazLogin();
+		System.out.println("-------------------------------");
+		System.out.println("       Bem Vindo ao App        ");
+		System.out.println("-------------------------------");
 		
-		//Acoes do Administrador
-		admin[0].fazCadastro();
-		admin[0].fazLogin();
-
+		if(usuario[0].getStatus() == false) {
+			System.out.println("Por Favor, Faca o cadastro!");
+			System.out.println("Caso ja tenha conta, faca o Login!");
+			System.out.println("-------------------------------");
+			usuario[0].fazCadastro();
+			usuario[0].fazLogin();
+			System.out.println("-------------------------------");
+		}
 		
-		//Se o usuario estiver logado abre a interface do App
-		if(usuario[0].getStatus()) {
-			Interface app = new Interface();
-			app.cadastrarModulo(admin[0], 0, "Notas Musicais", true, false);
+		if(usuario[0].getStatus()){
+			Aplicativo app = new Aplicativo();
+			app.cadastrarModulo(usuario[0], "Basico 1", true, false);
 			app.mostrarModulo();
 		}
 		
