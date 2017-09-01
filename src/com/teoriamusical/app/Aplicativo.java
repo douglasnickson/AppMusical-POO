@@ -64,4 +64,9 @@ public class Aplicativo implements AcoesAplicativo{
 		
 	}
 
+	@Override
+	public void desenhaInterface() {
+		System.out.println("-------------------------------------");
+	}
+
 }

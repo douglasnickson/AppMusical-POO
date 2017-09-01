@@ -28,6 +28,7 @@ public class Administrador extends Pessoa implements AcoesAdministrador{
 		this.status = true;
 		System.out.println("Login Realizado!");
 		System.out.println("Entrando no Gerenciamento....");
+		System.out.println("----------------------------------------");
 	}
 	
 	public void fazLogout() {

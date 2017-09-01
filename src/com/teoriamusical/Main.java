@@ -23,27 +23,24 @@ public class Main {
 		Gerenciamento gerenciamento = new Gerenciamento();
 		
 		//Abrindo a Interface do APP
-		System.out.println("-------------------------------");
-		System.out.println("       Bem Vindo ao App        ");
-		System.out.println("-------------------------------");
+		System.out.println("----------------------------------------");
+		System.out.println("            BEM VINDO AO APP            ");
+		System.out.println("----------------------------------------");
 		
 		admin[0].fazCadastro(gerenciamento);
 		admin[0].fazLogin();
 		
 		//Se o Administrador nao fez login mostra a msg
 		if(admin[0].getStatus()) {
-			System.out.println("Voce Pode:");
-			System.out.println("Cadastrar Modulo, Exercicio ou Assunto");
-			
+			System.out.println("      BEM VINDO AO GERENCIMAMENTO       ");
+			System.out.println("----------------------------------------");
 			gerenciamento.cadastrarModulo(admin[0], "Modulo 1 - Basico", true, false);
 			gerenciamento.cadastroAdministrador(admin[0], admin[1]);
 			gerenciamento.listarUsuario();
 			gerenciamento.listarAdministrador();
-			
-			System.out.println("-------------------------------");
 		}else {
 			System.out.println("Somente Acesso Autorizado!");
-			System.out.println("-------------------------------");
+			System.out.println("----------------------------------------");
 		}	
 		
 		usuario[0].fazCadastro(gerenciamento);
@@ -51,12 +48,14 @@ public class Main {
 		
 		//Area Principal do App
 		if(usuario[0].getStatus()){
+			System.out.println("     BEM VINDO A INTERFACE DO APP       ");
+			System.out.println("----------------------------------------");
 			app.mostrarModulo(gerenciamento);
-			System.out.println("-------------------------------");
+			System.out.println("----------------------------------------");
 		}else {
 			System.out.println("Por Favor, Faca o cadastro!");
 			System.out.println("ou, faca o Login!");
-			System.out.println("-------------------------------");
+			System.out.println("----------------------------------------");
 		}	
 		
 	}

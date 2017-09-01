@@ -39,6 +39,7 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 			this.setStatus(true);
 			System.out.println("Logado com Sucesso!");
 			System.out.println("Entrando no App....");
+			System.out.println("----------------------------------------");
 		}else {
 			System.out.println("Faca o Cadastro antes de Logar!");
 		}
@@ -61,7 +62,6 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 		}else {
 			this.setCadastro(true);
 			gerenciamento.cadastroUsuario(this);
-			System.out.println("Cadastro Realizado com Sucesso!");
 		}
 	}
 

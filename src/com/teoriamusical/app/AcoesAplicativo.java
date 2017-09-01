@@ -10,4 +10,5 @@ public interface AcoesAplicativo {
 	public void mostrarExercicio();
 	public void acessarExercicio();
 	public void mostrarPerfil(Usuario usuario);
+	public void desenhaInterface();
 }
