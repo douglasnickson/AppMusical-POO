@@ -1,6 +1,7 @@
 package com.teoriamusical.pessoas;
 
 import com.teoriamusical.app.Aplicativo;
+import com.teoriamusical.app.Gerenciamento;
 
 public class Usuario extends Pessoa implements AcoesUsuario{
 	protected String login;
@@ -54,12 +55,12 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 	//Verifica se o usuario ja esta cadastrado
 	//Senao estiver faz o cadastro
 	@Override
-	public void fazCadastro(Aplicativo app) {
+	public void fazCadastro(Gerenciamento gerenciamento) {
 		if(this.cadastro) {
 			System.out.println("Usuario ja Cadastrado!");
 		}else {
 			this.setCadastro(true);
-			app.armazenarUsuario(this);
+			gerenciamento.cadastroUsuario(this);
 			System.out.println("Cadastro Realizado com Sucesso!");
 		}
 	}

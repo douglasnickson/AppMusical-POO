@@ -27,24 +27,29 @@ public class Main {
 		System.out.println("       Bem Vindo ao App        ");
 		System.out.println("-------------------------------");
 		
+		admin[0].fazCadastro(gerenciamento);
 		admin[0].fazLogin();
 		
 		//Se o Administrador nao fez login mostra a msg
 		if(admin[0].getStatus()) {
 			System.out.println("Voce Pode:");
-			System.out.println("Cadastrar Modulo, Exercicio ou Assunto");			
-			gerenciamento.cadastrarModulo(usuario[0], "Basico 1", true, false);
-			admin[0].fazCadastro(app, admin[1]);
+			System.out.println("Cadastrar Modulo, Exercicio ou Assunto");
+			
+			gerenciamento.cadastrarModulo(admin[0], "Modulo 1 - Basico", true, false);
+			gerenciamento.cadastroAdministrador(admin[0], admin[1]);
+			gerenciamento.listarUsuario();
+			gerenciamento.listarAdministrador();
+			
 			System.out.println("-------------------------------");
 		}else {
 			System.out.println("Somente Acesso Autorizado!");
 			System.out.println("-------------------------------");
 		}	
 		
-		usuario[0].fazCadastro(app);
+		usuario[0].fazCadastro(gerenciamento);
 		usuario[0].fazLogin();
 		
-		//Area Administrativa do App
+		//Area Principal do App
 		if(usuario[0].getStatus()){
 			app.mostrarModulo(gerenciamento);
 			System.out.println("-------------------------------");

@@ -1,6 +1,6 @@
 package com.teoriamusical.pessoas;
 
-import com.teoriamusical.app.Aplicativo;
+import com.teoriamusical.app.Gerenciamento;
 
 public class Administrador extends Pessoa implements AcoesAdministrador{
 	private String login;
@@ -15,20 +15,13 @@ public class Administrador extends Pessoa implements AcoesAdministrador{
 		this.login = login;
 		this.email = email;
 		this.senha = senha;
+		this.tipo = 1;
 		this.status = false;
 	}
 	
-	//Verifica se o usuario ja esta cadastrado
-	//Senao estiver faz o cadastro
 	@Override
-	public void fazCadastro(Aplicativo app) {
-		if(this.cadastro) {
-			System.out.println("Administrador ja Cadastrado!");
-		}else {
-			this.setCadastro(true);
-			app.armazenarAdministrador(this);
-			System.out.println("Cadastro Realizado com Sucesso!");
-		}
+	public void fazCadastro(Gerenciamento gerenciamento) {
+		gerenciamento.cadastroAdministrador(this);
 	}
 	
 	public void fazLogin() {
@@ -82,14 +75,12 @@ public class Administrador extends Pessoa implements AcoesAdministrador{
 		this.tipo = tipo;
 	}
 
-	public boolean isCadastro() {
+	public boolean getCadastro() {
 		return cadastro;
 	}
 
 	public void setCadastro(boolean cadastro) {
 		this.cadastro = cadastro;
 	}
-	
-	
 		
 }
