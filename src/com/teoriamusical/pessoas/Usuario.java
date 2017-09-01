@@ -1,5 +1,7 @@
 package com.teoriamusical.pessoas;
 
+import com.teoriamusical.app.Aplicativo;
+
 public class Usuario extends Pessoa implements AcoesUsuario{
 	protected String login;
 	protected String email;
@@ -16,16 +18,6 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 		this.senha = senha;
 		this.status = false;
 		this.tipo_usuario = 3;
-		this.cadastro = false;
-	}
-	
-	public Usuario(String nome, int idade, String cpf, String login, String email, String senha, int tipoUsuario) {
-		super(nome);
-		this.login = login;
-		this.email = email;
-		this.senha = senha;
-		this.status = false;
-		this.tipo_usuario = tipoUsuario;
 		this.cadastro = false;
 	}
 
@@ -62,11 +54,12 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 	//Verifica se o usuario ja esta cadastrado
 	//Senao estiver faz o cadastro
 	@Override
-	public void fazCadastro() {
+	public void fazCadastro(Aplicativo app) {
 		if(this.cadastro) {
 			System.out.println("Usuario ja Cadastrado!");
 		}else {
 			this.setCadastro(true);
+			app.armazenarUsuario(this);
 			System.out.println("Cadastro Realizado com Sucesso!");
 		}
 	}

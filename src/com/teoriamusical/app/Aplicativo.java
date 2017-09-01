@@ -4,23 +4,12 @@ import com.teoriamusical.pessoas.Administrador;
 import com.teoriamusical.pessoas.Usuario;
 
 public class Aplicativo implements AcoesAplicativo{
-	private Modulo modulo[] = new Modulo[10];
-	private Assunto assunto[] = new Assunto[10];
-	private Exercicio exercicio[] = new Exercicio[10];
 	private Usuario usuario[] = new Usuario[10];
 	private Administrador admin[] = new Administrador[10];
 	
 	@Override
-	public void mostrarModulo() {
-		System.out.println("Listando os modulos do curso....");
-		for (int i = 0; i < this.modulo.length; i++) {
-			if(this.modulo[i] == null) {
-				break;
-			}else {
-				System.out.println(this.modulo[i].getNome_modulo());
-			}
-		}
-		
+	public void mostrarModulo(Gerenciamento gerenciamento) {
+		gerenciamento.listarModulos();
 	}
 
 	@Override
@@ -55,20 +44,6 @@ public class Aplicativo implements AcoesAplicativo{
 	@Override
 	public void cadastrarModulo(Usuario usuario, String nome, boolean ativo, boolean premium) {
 		
-		if(usuario.getTipoUsuario() == 1) {
-			int tam = this.modulo.length;
-			for(int i = 0; i < this.modulo.length; i++) {
-				
-				if(this.modulo[i] == null) {
-					this.modulo[i] = new Modulo(nome, ativo, premium);
-					System.out.println("Modulo Cadastrado com Sucesso!");
-				}else if (i == tam - 1 && this.modulo[i] != null) {
-					System.out.println("Numero Maximo de Modulos Atingido!");
-				}
-			}
-		}else {
-			System.out.println("Apenas Administradores podem Cadastrar Modulos");
-		}
 	}
 
 	@Override
@@ -104,6 +79,36 @@ public class Aplicativo implements AcoesAplicativo{
 			System.out.println("Premium");
 		}else {
 			System.out.println("Administrador");
+		}
+		
+	}
+	
+	//Armazena os Usuarios no App
+	@Override
+	public void armazenarUsuario(Usuario usuario) {
+		int tam = this.usuario.length;
+		for(int i = 0; i < this.usuario.length; i++) {
+			if(this.usuario[i] == null) {
+				this.usuario[i] = usuario;
+				break;
+			}else if(i == tam - 1 && this.usuario[i] != null){
+				System.out.println("Numero Maximo de Usuarios Atingidos.");
+			}
+		}
+		
+	}
+
+	//Armazena os Administradores no App
+	@Override
+	public void armazenarAdministrador(Administrador admin) {
+		int tam = this.admin.length;
+		for(int i = 0; i < this.admin.length; i++) {
+			if(this.admin[i] == null) {
+				this.admin[i] = admin;
+				break;
+			}else if(i == tam - 1 && this.admin[i] != null){
+				System.out.println("Numero Maximo de Usuarios Atingidos.");
+			}
 		}
 		
 	}

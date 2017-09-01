@@ -1,15 +1,19 @@
 package com.teoriamusical.pessoas;
 
+import com.teoriamusical.app.Aplicativo;
+
 public abstract class Pessoa {
 	protected String nome;
 	protected int idade;
 	protected String cpf;
+	protected String sexo;
 	protected String profissao;
 	
 	public Pessoa(String nome) {
 		super();
 		this.nome = nome;
 		this.cpf = "Nao Informado";
+		this.sexo = "Nao Informado";
 		this.profissao = "Nao Informado";
 	}
 	
@@ -20,11 +24,15 @@ public abstract class Pessoa {
 	public void fazLogout() {
 		System.out.println("Logout Realizado");
 	}
-	
-	public void fazCadastro() {
+
+	public void fazCadastro(Aplicativo app) {
 		System.out.println("Cadastro Realizado");
 	}
-
+	
+	public void fazCadastro(Aplicativo app, Administrador admin) {
+		System.out.println("Cadastro Realizado");
+	}
+	
 	public String getNome() {
 		return nome;
 	}
