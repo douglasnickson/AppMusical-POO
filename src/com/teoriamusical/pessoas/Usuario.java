@@ -1,92 +1,31 @@
 package com.teoriamusical.pessoas;
 
-import com.teoriamusical.app.Aplicativo;
-import com.teoriamusical.app.Gerenciamento;
-
-public class Usuario extends Pessoa implements AcoesUsuario{
+public abstract class Usuario extends Pessoa{
 	protected String login;
 	protected String email;
 	protected String senha;
 	protected boolean status; //Logado ou Nao
 	protected int tipo_usuario; //Tipo de Usuario
-	protected boolean cadastro; //Cadastrado ou Nao
+	protected boolean tem_cadastro; //Cadastrado ou Nao
 	
 	//Metodo construtor
 	public Usuario(String nome, int idade, String cpf, String login, String email, String senha) {
 		super(nome);
+		this.idade = idade;
+		this.cpf = cpf;
 		this.login = login;
 		this.email = email;
 		this.senha = senha;
 		this.status = false;
 		this.tipo_usuario = 3;
-		this.cadastro = false;
-	}
-
-	//Metodo toString
-	@Override
-	public String toString() {
-		return "Usuario [login=" + login + ", email=" + email + ", senha=" + senha + ", status=" + status
-				+ ", assinante=" + tipo_usuario + ",cadastro=" + cadastro + ", nome=" + super.nome + ", idade=" + super.idade + ", cpf=" + super.cpf
-				+ ", profissao=" + super.profissao + "]";
+		this.tem_cadastro = false;
 	}
 	
-	//Verifica se o usuario tem cadastro
-	//Caso tenha faz login e da um aviso
-	//Senao retorna uma mensagem de aviso
-	@Override
-	public void fazLogin() {
-		if(this.getCadastro()) {
-			this.setStatus(true);
-			System.out.println("Logado com Sucesso!");
-			System.out.println("Entrando no App....");
-			System.out.println("----------------------------------------");
-		}else {
-			System.out.println("Faca o Cadastro antes de Logar!");
-		}
-		
-	}
-
-	//faz logout e coloca o status como deslogado
-	@Override
-	public void fazLogout() {
-		this.setStatus(false);
-		System.out.println("Deslogado com Sucesso!");
-	}
-	
-	//Verifica se o usuario ja esta cadastrado
-	//Senao estiver faz o cadastro
-	@Override
-	public void fazCadastro(Gerenciamento gerenciamento) {
-		if(this.cadastro) {
-			System.out.println("Usuario ja Cadastrado!");
-		}else {
-			this.setCadastro(true);
-			gerenciamento.cadastroUsuario(this);
-		}
-	}
-
-	@Override
-	public void acessarModulo() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void fazExercicio() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void escolherAssunto() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void assinarPremium() {
-		// TODO Auto-generated method stub
-		
+	public Usuario(String nome, String login, String email, String senha) {
+		super(nome);
+		this.status = false;
+		this.tipo_usuario = 1;
+		this.tem_cadastro = false;
 	}
 	
 	//Metodos de Acessos
@@ -131,11 +70,11 @@ public class Usuario extends Pessoa implements AcoesUsuario{
 	}
 
 	public boolean getCadastro() {
-		return cadastro;
+		return tem_cadastro;
 	}
 
-	public void setCadastro(boolean cadastro) {
-		this.cadastro = cadastro;
+	public void setCadastro(boolean tem_cadastro) {
+		this.tem_cadastro = tem_cadastro;
 	}
 	
 }

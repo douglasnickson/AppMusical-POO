@@ -1,6 +1,5 @@
 package com.teoriamusical.pessoas;
 
-import com.teoriamusical.app.Aplicativo;
 import com.teoriamusical.app.Gerenciamento;
 
 public abstract class Pessoa {
@@ -13,6 +12,7 @@ public abstract class Pessoa {
 	public Pessoa(String nome) {
 		super();
 		this.nome = nome;
+		this.idade = 0;
 		this.cpf = "Nao Informado";
 		this.sexo = "Nao Informado";
 		this.profissao = "Nao Informado";

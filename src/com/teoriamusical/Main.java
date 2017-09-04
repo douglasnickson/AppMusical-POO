@@ -6,6 +6,7 @@ import com.teoriamusical.app.Exercicio;
 import com.teoriamusical.app.Gerenciamento;
 import com.teoriamusical.app.Modulo;
 import com.teoriamusical.pessoas.Administrador;
+import com.teoriamusical.pessoas.Aluno;
 import com.teoriamusical.pessoas.Usuario;
 
 public class Main {
@@ -14,7 +15,7 @@ public class Main {
 		
 		//Criando Usuarios
 		Usuario usuario[] = new Usuario[5];
-		usuario[0] = new Usuario("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345");
+		usuario[0] = new Aluno("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345");
 		
 		//Criando Administradores
 		Administrador admin[] = new Administrador[5];

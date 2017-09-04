@@ -2,20 +2,11 @@ package com.teoriamusical.pessoas;
 
 import com.teoriamusical.app.Gerenciamento;
 
-public class Administrador extends Pessoa implements AcoesAdministrador{
-	private String login;
-	private String email;
-	private String senha;
-	private boolean status;
-	private boolean cadastro;
-	private int tipo;
+public class Administrador extends Usuario implements AcoesAdministrador{
 	
 	public Administrador(String nome, String login, String email, String senha) {
-		super(nome);
-		this.login = login;
-		this.email = email;
-		this.senha = senha;
-		this.tipo = 1;
+		super(nome, login, email, senha);
+		this.tipo_usuario = 1;
 		this.status = false;
 	}
 	
@@ -34,54 +25,6 @@ public class Administrador extends Pessoa implements AcoesAdministrador{
 	public void fazLogout() {
 		this.status = false;
 		System.out.println("Logout Realizado");
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public boolean getStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
-	public int getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
-
-	public boolean getCadastro() {
-		return cadastro;
-	}
-
-	public void setCadastro(boolean cadastro) {
-		this.cadastro = cadastro;
 	}
 		
 }

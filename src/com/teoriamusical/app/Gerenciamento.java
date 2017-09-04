@@ -17,7 +17,7 @@ public class Gerenciamento implements AcoesGerenciamento{
 		System.out.println("         CADASTRAR NOVO MODULO          ");
 		System.out.println("----------------------------------------");
 		//Verifica se o usuario e um administrador
-		if(admin.getTipo() == 1) {
+		if(admin.getTipoUsuario() == 1) {
 			int tam = this.modulo.length;
 			for(int i = 0; i < this.modulo.length; i++) {
 				
@@ -52,7 +52,7 @@ public class Gerenciamento implements AcoesGerenciamento{
 		System.out.println("         CADASTRAR NOVO ASSUNTO         ");
 		System.out.println("----------------------------------------");
 		//Verifica se o usuario e um administrador
-		if(admin.getTipo() == 1) {
+		if(admin.getTipoUsuario() == 1) {
 			int tam = this.assunto.length;
 			for(int i = 0; i < tam; i++) {
 				if(this.assunto[i] == null) {
@@ -87,7 +87,7 @@ public class Gerenciamento implements AcoesGerenciamento{
 		System.out.println("         CADASTRAR NOVO EXERCICIO         ");
 		System.out.println("----------------------------------------");
 		//Verifica se o usuario e um administrador
-		if(admin.getTipo() == 1) {
+		if(admin.getTipoUsuario() == 1) {
 			int tam = this.exercicio.length;
 			for(int i = 0; i < tam; i++) {
 				if(this.exercicio[i] == null) {
@@ -123,7 +123,7 @@ public class Gerenciamento implements AcoesGerenciamento{
 	public void alterarTipoUsuario(Administrador administrador, Usuario usuario) {
 		System.out.println(" ALTERAR O TIPO DE ASSINATURA DO USUARIO");
 		System.out.println("----------------------------------------");
-		int tipo = administrador.getTipo();
+		int tipo = administrador.getTipoUsuario();
 		if(tipo == 1) {
 			usuario.setTipoUsuario(2);
 			System.out.println("Assinatura Alterada com Sucesso!");
