@@ -2,6 +2,7 @@ package com.teoriamusical;
 
 import com.teoriamusical.app.Aplicativo;
 import com.teoriamusical.app.Assunto;
+import com.teoriamusical.app.Exercicio;
 import com.teoriamusical.app.Gerenciamento;
 import com.teoriamusical.app.Modulo;
 import com.teoriamusical.pessoas.Administrador;
@@ -29,6 +30,8 @@ public class Main {
 		assunto[0] = new Assunto("Notas Musicais", false, true);
 		
 		//Criando os Exercicios
+		Exercicio exercicio[] = new Exercicio[0];
+		exercicio[0] = new Exercicio("Quiz", true, false);
 		
 		//Instanciando as Interfaces
 		Aplicativo app = new Aplicativo();
@@ -39,6 +42,7 @@ public class Main {
 		System.out.println("            BEM VINDO AO APP            ");
 		System.out.println("----------------------------------------");
 		
+		//Cadastro e Login
 		admin[0].fazCadastro(gerenciamento);
 		admin[0].fazLogin();
 		usuario[0].fazCadastro(gerenciamento);
@@ -65,7 +69,7 @@ public class Main {
 			System.out.println("----------------------------------------");
 			app.mostrarModulo(gerenciamento);
 			System.out.println("----------------------------------------");
-			app.mostrarAssunto();
+			app.mostrarAssunto(gerenciamento);
 		}else {
 			System.out.println("Por Favor, Faca o cadastro!");
 			System.out.println("ou, faca o Login!");

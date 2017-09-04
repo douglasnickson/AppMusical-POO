@@ -10,9 +10,8 @@ public class Aplicativo implements AcoesAplicativo{
 	}
 
 	@Override
-	public void mostrarAssunto() {
-		System.out.println("Listando os assuntos dos modulos....");
-		
+	public void mostrarAssunto(Gerenciamento gerenciamento) {
+		gerenciamento.listarAssunto();
 	}
 
 	@Override

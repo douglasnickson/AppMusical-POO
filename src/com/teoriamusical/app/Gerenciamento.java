@@ -42,7 +42,7 @@ public class Gerenciamento implements AcoesGerenciamento{
 			if(this.modulo[i] == null) {
 				break;
 			}else {
-				System.out.println(this.modulo[i].getNome_modulo());
+				System.out.println(this.modulo[i].getNome());
 			}
 		}	
 	}
@@ -59,6 +59,7 @@ public class Gerenciamento implements AcoesGerenciamento{
 					this.assunto[i] = assunto;
 					modulo.cadastrarAssunto(assunto);
 					System.out.println("Assunto Cadastrado com Sucesso!");
+					break;
 				}else if(i == tam - 1 && this.assunto[i] != null) {
 					System.out.println("Numero Maximo de Assuntos ja Atingidos!");
 				}
