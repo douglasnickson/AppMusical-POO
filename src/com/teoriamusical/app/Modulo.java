@@ -55,8 +55,8 @@ public class Modulo {
 		return assunto;
 	}
 
-	public void setAssunto(ArrayList<Assunto> assunto) {
-		this.assunto = assunto;
+	public void cadastrarAssunto(Assunto assunto) {
+		this.assunto.add(assunto);
 	}
 	
 }

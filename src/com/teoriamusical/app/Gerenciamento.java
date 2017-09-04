@@ -13,7 +13,7 @@ public class Gerenciamento implements AcoesGerenciamento{
 	
 	//Faz o cadastro de um modulo no App
 	@Override
-	public void cadastrarModulo(Administrador admin, String nome, boolean ativo, boolean premium) {
+	public void cadastrarModulo(Administrador admin, Modulo modulo) {
 		System.out.println("         CADASTRAR NOVO MODULO          ");
 		System.out.println("----------------------------------------");
 		//Verifica se o usuario e um administrador
@@ -22,7 +22,7 @@ public class Gerenciamento implements AcoesGerenciamento{
 			for(int i = 0; i < this.modulo.length; i++) {
 				
 				if(this.modulo[i] == null) {
-					this.modulo[i] = new Modulo(nome, ativo, premium);
+					this.modulo[i] = modulo;
 					System.out.println("Modulo Cadastrado com Sucesso!");
 					break;
 				}else if (i == tam - 1 && this.modulo[i] != null) {
@@ -44,20 +44,41 @@ public class Gerenciamento implements AcoesGerenciamento{
 			}else {
 				System.out.println(this.modulo[i].getNome_modulo());
 			}
-		}
-		
+		}	
 	}
 	
 	@Override
-	public void cadastrarAssunto() {
-		// TODO Auto-generated method stub
-		
+	public void cadastrarAssunto(Administrador admin, Modulo modulo, Assunto assunto) {
+		System.out.println("         CADASTRAR NOVO ASSUNTO         ");
+		System.out.println("----------------------------------------");
+		//Verifica se o usuario e um administrador
+		if(admin.getTipo() == 1) {
+			int tam = this.assunto.length;
+			for(int i = 0; i < tam; i++) {
+				if(this.assunto[i] == null) {
+					this.assunto[i] = assunto;
+					modulo.cadastrarAssunto(assunto);
+					System.out.println("Assunto Cadastrado com Sucesso!");
+				}else if(i == tam - 1 && this.assunto[i] != null) {
+					System.out.println("Numero Maximo de Assuntos ja Atingidos!");
+				}
+			}
+		}else {
+			System.out.println("Apenas Administradores podem Cadastrar Assuntos!");
+		}
+		System.out.println("----------------------------------------");
 	}
 	
 	@Override
 	public void listarAssunto() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Listando os Assuntos do curso....");
+		for (int i = 0; i < this.assunto.length; i++) {
+			if(this.assunto[i] == null) {
+				break;
+			}else {
+				System.out.println(this.assunto[i].getNome());
+			}
+		}	
 	}
 
 	@Override

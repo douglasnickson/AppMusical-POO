@@ -5,9 +5,9 @@ import com.teoriamusical.pessoas.Usuario;
 
 public interface AcoesGerenciamento {
 
-	public abstract void cadastrarModulo(Administrador admin, String nome, boolean ativo, boolean premium);
+	public abstract void cadastrarModulo(Administrador admin, Modulo modulo);
 	public abstract void listarModulos();
-	public abstract void cadastrarAssunto();
+	public abstract void cadastrarAssunto(Administrador admin, Modulo modulo, Assunto assunto);
 	public abstract void listarAssunto();
 	public abstract void cadastrarExercicio();
 	public abstract void listarExercicio();
