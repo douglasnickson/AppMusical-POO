@@ -7,7 +7,7 @@ public interface AcoesAplicativo {
 	public void acessarModulo();
 	public void mostrarAssunto(Gerenciamento gerenciamento);
 	public void acessarAssunto();
-	public void mostrarExercicio();
+	public void mostrarExercicio(Gerenciamento gerenciamento);
 	public void acessarExercicio();
 	public void mostrarPerfil(Usuario usuario);
 	public void desenhaInterface();

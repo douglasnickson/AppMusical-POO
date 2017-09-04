@@ -30,7 +30,7 @@ public class Main {
 		assunto[0] = new Assunto("Notas Musicais", false, true);
 		
 		//Criando os Exercicios
-		Exercicio exercicio[] = new Exercicio[0];
+		Exercicio exercicio[] = new Exercicio[10];
 		exercicio[0] = new Exercicio("Quiz", true, false);
 		
 		//Instanciando as Interfaces
@@ -54,6 +54,7 @@ public class Main {
 			System.out.println("----------------------------------------");
 			gerenciamento.cadastrarModulo(admin[0], modulo[0]);
 			gerenciamento.cadastrarAssunto(admin[0], modulo[0], assunto[0]);
+			gerenciamento.cadastrarExercicio(admin[0], assunto[0], exercicio[0]);
 			gerenciamento.cadastroAdministrador(admin[0], admin[1]);
 			gerenciamento.listarUsuario();
 			gerenciamento.listarAdministrador();
@@ -70,6 +71,8 @@ public class Main {
 			app.mostrarModulo(gerenciamento);
 			System.out.println("----------------------------------------");
 			app.mostrarAssunto(gerenciamento);
+			System.out.println("----------------------------------------");
+			app.mostrarExercicio(gerenciamento);
 		}else {
 			System.out.println("Por Favor, Faca o cadastro!");
 			System.out.println("ou, faca o Login!");

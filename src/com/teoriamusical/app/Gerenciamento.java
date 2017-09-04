@@ -83,15 +83,39 @@ public class Gerenciamento implements AcoesGerenciamento{
 	}
 
 	@Override
-	public void cadastrarExercicio() {
-		// TODO Auto-generated method stub
+	public void cadastrarExercicio(Administrador admin, Assunto assunto, Exercicio exercicio) {
+		System.out.println("         CADASTRAR NOVO EXERCICIO         ");
+		System.out.println("----------------------------------------");
+		//Verifica se o usuario e um administrador
+		if(admin.getTipo() == 1) {
+			int tam = this.exercicio.length;
+			for(int i = 0; i < tam; i++) {
+				if(this.exercicio[i] == null) {
+					this.exercicio[i] = exercicio;
+					assunto.cadastrarExercicio(exercicio);
+					System.out.println("Exercicio Cadastrado com Sucesso!");
+					break;
+				}else if(i == tam - 1 && this.exercicio[i] != null) {
+					System.out.println("Numero Maximo de Exercicios ja Atingidos!");
+				}
+			}
+		}else {
+			System.out.println("Apenas Administradores podem Cadastrar Exercicios!");
+		}
+		System.out.println("----------------------------------------");
 		
 	}
 	
 	@Override
 	public void listarExercicio() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Listando os Exercicios do curso....");
+		for (int i = 0; i < this.exercicio.length; i++) {
+			if(this.exercicio[i] == null) {
+				break;
+			}else {
+				System.out.println(this.exercicio[i].getNome());
+			}
+		}		
 	}
 	
 	//Altera o Tipo do Usuario para Gratis ou Premium

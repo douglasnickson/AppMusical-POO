@@ -15,8 +15,8 @@ public class Aplicativo implements AcoesAplicativo{
 	}
 
 	@Override
-	public void mostrarExercicio() {
-		System.out.println("Listando os exercicios do assunto.......");
+	public void mostrarExercicio(Gerenciamento gerenciamento) {
+		gerenciamento.listarExercicio();
 	}
 	
 	//Metodo responsavel por listar os dados do usuario

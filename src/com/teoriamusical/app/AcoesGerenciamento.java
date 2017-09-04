@@ -9,7 +9,7 @@ public interface AcoesGerenciamento {
 	public abstract void listarModulos();
 	public abstract void cadastrarAssunto(Administrador admin, Modulo modulo, Assunto assunto);
 	public abstract void listarAssunto();
-	public abstract void cadastrarExercicio();
+	public abstract void cadastrarExercicio(Administrador admin, Assunto assunto, Exercicio exercicio);
 	public abstract void listarExercicio();
 	public abstract void cadastroAdministrador(Administrador admin, Administrador novoadmin);
 	public abstract void listarAdministrador();
