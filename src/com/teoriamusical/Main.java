@@ -80,6 +80,7 @@ public class Main {
 			
 			aluno[0].acessarModulo(modulo[0]);
 			aluno[0].acessarAssunto(assunto[0]);
+			aluno[0].fazExercicio(exercicio[0]);
 			
 		}else {
 			System.out.println("Por Favor, Faca o cadastro!");

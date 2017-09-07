@@ -15,5 +15,5 @@ public class Exercicio extends Conteudo{
 	public String getTipo_exercicio() {
 		return tipo_exercicio;
 	}
-
+	
 }

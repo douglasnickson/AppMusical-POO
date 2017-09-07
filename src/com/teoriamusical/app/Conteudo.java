@@ -3,6 +3,7 @@ package com.teoriamusical.app;
 public abstract class Conteudo {
 	protected String nome;
 	protected float progresso;
+	private boolean concluido;
 	protected boolean premium;
 	protected boolean ativo;
 	
@@ -39,6 +40,12 @@ public abstract class Conteudo {
 		this.ativo = ativo;
 	}
 	
-	
+	public boolean getConcluido() {
+		return concluido;
+	}
+
+	public void setConcluido(boolean concluido) {
+		this.concluido = concluido;
+	}
 	
 }
