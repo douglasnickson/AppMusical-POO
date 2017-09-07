@@ -1,6 +1,7 @@
 package com.teoriamusical.pessoas;
 
 import com.teoriamusical.app.Gerenciamento;
+import com.teoriamusical.app.Modulo;
 
 public class Aluno extends Usuario implements AcoesAluno{
 	
@@ -53,9 +54,11 @@ public class Aluno extends Usuario implements AcoesAluno{
 	}
 
 	@Override
-	public void acessarModulo() {
-		// TODO Auto-generated method stub
-		
+	public void acessarModulo(Modulo modulo) {
+		System.out.println("----------------------------------------");
+		System.out.println(" Entrando no " + modulo.getNome());
+		System.out.println("----------------------------------------");
+		modulo.mostrarAssuntos();
 	}
 
 	@Override
@@ -65,7 +68,7 @@ public class Aluno extends Usuario implements AcoesAluno{
 	}
 
 	@Override
-	public void escolherAssunto() {
+	public void acessarAssunto(Assunto assunto) {
 		// TODO Auto-generated method stub
 		
 	}

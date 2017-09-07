@@ -15,4 +15,10 @@ public class Modulo extends Conteudo{
 		this.assunto.add(assunto);
 	}
 	
+	//Metodo que lista dos Assuntos
+	public void mostrarAssuntos() {
+		for (int i =0; i<assunto.size(); i++) {
+			System.out.println(assunto.get(i).getNome());
+		}
+	}
 }

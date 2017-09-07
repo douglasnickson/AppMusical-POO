@@ -7,15 +7,14 @@ import com.teoriamusical.app.Gerenciamento;
 import com.teoriamusical.app.Modulo;
 import com.teoriamusical.pessoas.Administrador;
 import com.teoriamusical.pessoas.Aluno;
-import com.teoriamusical.pessoas.Usuario;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
 		//Criando Usuarios
-		Usuario usuario[] = new Usuario[5];
-		usuario[0] = new Aluno("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345");
+		Aluno aluno[] = new Aluno[5];
+		aluno[0] = new Aluno("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345");
 		
 		//Criando Administradores
 		Administrador admin[] = new Administrador[5];
@@ -46,19 +45,20 @@ public class Main {
 		//Cadastro e Login
 		admin[0].fazCadastro(gerenciamento);
 		admin[0].fazLogin();
-		usuario[0].fazCadastro(gerenciamento);
-		usuario[0].fazLogin();
+		aluno[0].fazCadastro(gerenciamento);
+		aluno[0].fazLogin();
 		
 		//Se o Administrador nao fez login mostra a msg
 		if(admin[0].getStatus()) {
+			System.out.println("----------------------------------------");
 			System.out.println("      BEM VINDO AO GERENCIMAMENTO       ");
 			System.out.println("----------------------------------------");
 			gerenciamento.cadastrarModulo(admin[0], modulo[0]);
 			gerenciamento.cadastrarAssunto(admin[0], modulo[0], assunto[0]);
 			gerenciamento.cadastrarExercicio(admin[0], assunto[0], exercicio[0]);
 			gerenciamento.cadastroAdministrador(admin[0], admin[1]);
-			gerenciamento.listarUsuario();
-			gerenciamento.listarAdministrador();
+			//gerenciamento.listarUsuario();
+			//gerenciamento.listarAdministrador();
 		}else {
 			System.out.println("Somente Acesso Autorizado!");
 			System.out.println("----------------------------------------");
@@ -66,14 +66,20 @@ public class Main {
 
 		
 		//Area Principal do App
-		if(usuario[0].getStatus()){
+		if(aluno[0].getStatus()){
+			System.out.println("----------------------------------------");
 			System.out.println("     BEM VINDO A INTERFACE DO APP       ");
 			System.out.println("----------------------------------------");
+			
+			
 			app.mostrarModulo(gerenciamento);
 			System.out.println("----------------------------------------");
-			app.mostrarAssunto(gerenciamento);
-			System.out.println("----------------------------------------");
-			app.mostrarExercicio(gerenciamento);
+			//app.mostrarAssunto(gerenciamento);
+			//System.out.println("----------------------------------------");
+			//app.mostrarExercicio(gerenciamento);
+			
+			aluno[0].acessarModulo(modulo[0]);
+			
 		}else {
 			System.out.println("Por Favor, Faca o cadastro!");
 			System.out.println("ou, faca o Login!");
