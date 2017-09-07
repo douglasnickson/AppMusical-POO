@@ -79,6 +79,7 @@ public class Main {
 			//app.mostrarExercicio(gerenciamento);
 			
 			aluno[0].acessarModulo(modulo[0]);
+			aluno[0].acessarAssunto(assunto[0]);
 			
 		}else {
 			System.out.println("Por Favor, Faca o cadastro!");

@@ -12,4 +12,11 @@ public class Assunto extends Conteudo{
 	public void cadastrarExercicio(Exercicio exercicio) {
 		this.exercicio.add(exercicio);
 	}
+	
+	//Metodo que lista dos Assuntos
+	public void mostrarExercicios() {
+		for (int i =0; i<exercicio.size(); i++) {
+			System.out.println(exercicio.get(i).getNome());
+		}
+	}
 }
