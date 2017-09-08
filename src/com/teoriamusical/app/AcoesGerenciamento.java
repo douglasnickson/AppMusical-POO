@@ -1,7 +1,7 @@
 package com.teoriamusical.app;
 
 import com.teoriamusical.pessoas.Administrador;
-import com.teoriamusical.pessoas.Usuario;
+import com.teoriamusical.pessoas.Aluno;
 
 public interface AcoesGerenciamento {
 
@@ -13,7 +13,7 @@ public interface AcoesGerenciamento {
 	public abstract void listarExercicio();
 	public abstract void cadastroAdministrador(Administrador admin, Administrador novoadmin);
 	public abstract void listarAdministrador();
-	public abstract void cadastroUsuario(Usuario usuario);
+	public abstract void cadastroUsuario(Aluno aluno);
 	public abstract void listarUsuario();
-	public abstract void alterarTipoUsuario(Administrador administrador, Usuario usuario);
+	public abstract void alterarTipoUsuario(Administrador administrador, Aluno aluno);
 }

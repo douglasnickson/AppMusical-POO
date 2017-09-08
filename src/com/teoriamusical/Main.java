@@ -53,6 +53,9 @@ public class Main {
 		app.fazerExercicio();
 		app.fazerComentario();
 		app.fazerAvaliacao();
+		app.assinarPremium();
+		app.gerarCertificado();
+		app.mostrarPerfil();
 		System.out.println(app.toString());
 	}
 
