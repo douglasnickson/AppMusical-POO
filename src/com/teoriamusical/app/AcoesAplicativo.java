@@ -1,7 +1,6 @@
 package com.teoriamusical.app;
 
 import com.teoriamusical.pessoas.Aluno;
-import com.teoriamusical.pessoas.Usuario;
 
 public interface AcoesAplicativo {
 	public void mostrarModulo(Gerenciamento gerenciamento);
@@ -11,4 +10,5 @@ public interface AcoesAplicativo {
 	public void fazerComentario();
 	public void fazerAvaliacao();
 	public void mostrarPerfil(Aluno aluno);
+	public void gerarCertificado();
 }

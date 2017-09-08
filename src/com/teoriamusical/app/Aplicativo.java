@@ -16,7 +16,7 @@ public class Aplicativo implements AcoesAplicativo{
 
 	@Override
 	public String toString() {
-		return "Aplicativo [Aluno=" + aluno.getLogin() + ", Modulo=" + modulo.getNome() + ", Progresso=" + modulo.getProgresso() + ", " + modulo.getAssunto() +"]";
+		return "Aplicativo [Aluno=" + aluno.getLogin() + ", Modulo=" + modulo.getNome() + ", Progresso=" + modulo.getProgresso() + ", Avaliacao=" + modulo.getAvaliacao() + ", " + modulo.getAssunto() +"]";
 	}
 
 
@@ -58,6 +58,11 @@ public class Aplicativo implements AcoesAplicativo{
 	@Override
 	public void fazerAvaliacao() {
 		modulo.fazerAvaliacao(0, 0, 5);
+	}
+	
+	@Override
+	public void gerarCertificado() {
+		
 	}
 
 }

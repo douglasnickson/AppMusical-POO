@@ -11,7 +11,7 @@ public class Assunto extends Conteudo{
 
 	@Override
 	public String toString() {
-		return "Assunto [nome=" + nome + ", progresso=" + progresso + ", concluido=" + super.getConcluido() + ", " + exercicio.toString() + "]";
+		return "Assunto [nome=" + nome + ", progresso=" + progresso + ", avaliacao=" + super.getAvaliacao() + ", concluido=" + super.getConcluido() + ", " + exercicio.toString() + "]";
 	}
 	
 
@@ -55,5 +55,14 @@ public class Assunto extends Conteudo{
 	
 	public void fazerAvaliacao(int i, float avaliacao) {
 		exercicio.get(i).setAvaliacao(avaliacao);
+		int total=0;
+		float soma=0;
+		float media=0;
+		for(Exercicio exercicio: exercicio) {
+			soma = soma + exercicio.getAvaliacao();
+			total += 1;
+		}
+		media = soma/total;
+		this.setAvaliacao(media);
 	}
 }

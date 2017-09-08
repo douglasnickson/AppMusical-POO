@@ -42,6 +42,15 @@ public class Modulo extends Conteudo{
 	
 	public void fazerAvaliacao(int i, int l, float avaliacao) {
 		assunto.get(i).fazerAvaliacao(l, avaliacao);
+		int total=0;
+		float soma=0;
+		float media=0;
+		for(Assunto assunto: assunto) {
+			soma = soma + assunto.getAvaliacao();
+			total += 1;
+		}
+		media = soma/total;
+		this.setAvaliacao(media);
 	}
 	
 	public void atualizarProgressoAssunto(int i) {
