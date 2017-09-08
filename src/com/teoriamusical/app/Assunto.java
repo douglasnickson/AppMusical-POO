@@ -52,4 +52,8 @@ public class Assunto extends Conteudo{
 	public void fazerComentario(int i, String comentario) {
 		exercicio.get(i).setComentarios(comentario);
 	}
+	
+	public void fazerAvaliacao(int i, float avaliacao) {
+		exercicio.get(i).setAvaliacao(avaliacao);
+	}
 }

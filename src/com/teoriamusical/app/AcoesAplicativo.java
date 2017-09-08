@@ -7,6 +7,8 @@ public interface AcoesAplicativo {
 	public void mostrarModulo(Gerenciamento gerenciamento);
 	public void acessarModulo();
 	public void acessarAssunto();
-	public void fazExercicio();
+	public void fazerExercicio();
+	public void fazerComentario();
+	public void fazerAvaliacao();
 	public void mostrarPerfil(Aluno aluno);
 }

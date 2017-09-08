@@ -37,7 +37,11 @@ public class Modulo extends Conteudo{
 	}
 	
 	public void fazerComentario(int i, int l, String comentario) {
-		assunto.get(i).fazerComentario(i, comentario);
+		assunto.get(i).fazerComentario(l, comentario);
+	}
+	
+	public void fazerAvaliacao(int i, int l, float avaliacao) {
+		assunto.get(i).fazerAvaliacao(l, avaliacao);
 	}
 	
 	public void atualizarProgressoAssunto(int i) {

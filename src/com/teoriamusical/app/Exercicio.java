@@ -9,7 +9,7 @@ public class Exercicio extends Conteudo{
 	
 	@Override
 	public String toString() {
-		return "Exercicio [nome=" + nome + ", concluido="+ super.getConcluido() +", comentario=" + comentarios + "]";
+		return "Exercicio [nome=" + nome + ", concluido="+ super.getConcluido() +", avaliacao=" + super.getAvaliacao() + ", comentario=" + comentarios + "]";
 	}
 	
 	public Exercicio(String nome, boolean ativo, boolean premium) {

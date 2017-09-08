@@ -43,15 +43,21 @@ public class Aplicativo implements AcoesAplicativo{
 	}
 
 	@Override
-	public void fazExercicio() {
+	public void fazerExercicio() {
 		modulo.fazerExercicio(0, 0);
 		modulo.fazerExercicio(0, 1);
 		modulo.atualizarProgressoAssunto(0);
 		modulo.atualizarProgresso();
 	}
 	
+	@Override
 	public void fazerComentario() {
 		modulo.fazerComentario(0, 0, "Muito Bom!");
+	}
+	
+	@Override
+	public void fazerAvaliacao() {
+		modulo.fazerAvaliacao(0, 0, 5);
 	}
 
 }

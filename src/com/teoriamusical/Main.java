@@ -50,8 +50,9 @@ public class Main {
 		Aplicativo app = new Aplicativo(aluno[0], modulo[0]);
 		app.acessarModulo();
 		app.acessarAssunto();
-		app.fazExercicio();
+		app.fazerExercicio();
 		app.fazerComentario();
+		app.fazerAvaliacao();
 		System.out.println(app.toString());
 	}
 
