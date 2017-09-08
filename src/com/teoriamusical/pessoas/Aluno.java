@@ -5,7 +5,7 @@ import com.teoriamusical.app.Exercicio;
 import com.teoriamusical.app.Gerenciamento;
 import com.teoriamusical.app.Modulo;
 
-public class Aluno extends Usuario implements AcoesAluno{
+public class Aluno extends Usuario{
 	
 	//Metodo construtor
 	public Aluno(String nome, int idade, String cpf, String login, String email, String senha) {
@@ -15,7 +15,7 @@ public class Aluno extends Usuario implements AcoesAluno{
 	//Metodo toString
 	@Override
 	public String toString() {
-		return "Usuario [login=" + login + ", email=" + email + ", senha=" + senha + ", status=" + status
+		return "[login=" + login + ", email=" + email + ", senha=" + senha + ", status=" + status
 				+ ", assinante=" + tipo_usuario + ",cadastro=" + tem_cadastro + ", nome=" + super.nome + ", idade=" + super.idade + ", cpf=" + super.cpf
 				+ ", profissao=" + super.profissao + "]";
 	}
@@ -55,30 +55,7 @@ public class Aluno extends Usuario implements AcoesAluno{
 		}
 	}
 
-	@Override
-	public void acessarModulo(Modulo modulo) {
-		System.out.println("----------------------------------------");
-		System.out.println(" Entrando no " + modulo.getNome());
-		System.out.println("----------------------------------------");
-		modulo.mostrarAssuntos();
-	}
-
-	@Override
-	public void acessarAssunto(Assunto assunto) {
-		System.out.println("----------------------------------------");
-		System.out.println(" Entrando no " + assunto.getNome());
-		System.out.println("----------------------------------------");
-		assunto.mostrarExercicios();
-	}
 	
-	@Override
-	public void fazExercicio(Exercicio exercicio) {
-		exercicio.setConcluido(true);
-		
-	}
-
-
-	@Override
 	public void assinarPremium() {
 		this.setTipoUsuario(2);
 		

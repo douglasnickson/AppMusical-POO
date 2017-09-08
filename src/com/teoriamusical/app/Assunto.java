@@ -8,7 +8,13 @@ public class Assunto extends Conteudo{
 	public Assunto(String nome, boolean premium, boolean ativo) {
 		super(nome, ativo, premium);
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Assunto [nome=" + nome + ", progresso=" + progresso + ", premium="
+				+ premium + ", ativo=" + ativo + ",concluido=" + super.getConcluido() + ", exercicio=" + exercicio.toString() + "]";
+	}
+
 	public void cadastrarExercicio(Exercicio exercicio) {
 		this.exercicio.add(exercicio);
 	}
@@ -16,7 +22,30 @@ public class Assunto extends Conteudo{
 	//Metodo que lista dos Assuntos
 	public void mostrarExercicios() {
 		for (int i =0; i<exercicio.size(); i++) {
-			System.out.println(exercicio.get(i).getNome());
+			System.out.println(i + " - " + exercicio.get(i).getNome());
 		}
+	}
+	
+	public void atualizarProgresso() {
+		float concluidos = 0;
+		float progresso = 0;
+		for(Exercicio exercicio: exercicio) {
+			if(exercicio.getConcluido()) {
+				concluidos += 1;
+			}
+		}
+		
+		progresso = (concluidos/exercicio.size())*100;
+		this.setProgresso(progresso);
+		
+		if(progresso == 100) {
+			this.setConcluido(true);
+		}else {
+			this.setConcluido(false);
+		}
+	}
+	
+	public void buscarExercicio(int i) {
+		exercicio.get(i).setConcluido(true);
 	}
 }

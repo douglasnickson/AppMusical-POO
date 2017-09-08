@@ -1,9 +1,26 @@
 package com.teoriamusical.app;
 
+import com.teoriamusical.pessoas.Aluno;
 import com.teoriamusical.pessoas.Usuario;
 
 public class Aplicativo implements AcoesAplicativo{
 	
+	private Aluno aluno;
+	private Modulo modulo;
+	
+	public Aplicativo(Aluno aluno, Modulo modulo) {
+		super();
+		this.aluno = aluno;
+		this.modulo = modulo;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Aplicativo [Aluno=" + aluno + ", Modulo=" + modulo + "]";
+	}
+
+
 	@Override
 	public void mostrarModulo(Gerenciamento gerenciamento) {
 		gerenciamento.listarModulos();
@@ -19,53 +36,29 @@ public class Aplicativo implements AcoesAplicativo{
 		gerenciamento.listarExercicio();
 	}
 	
-	//Metodo responsavel por listar os dados do usuario
-	//Metodo recebe um objetivo usuario e busca informacoes sobre o mesmo
 	@Override
 	public void mostrarPerfil(Usuario usuario) {
-		System.out.println("mostrando o perfil o usuario.....");
-		System.out.println("---------------------------------");
-		System.out.println("       PERFIL DE " + usuario.getNome().toUpperCase());
-		System.out.println("---------------------------------");
-		System.out.println("Usuario: " + usuario.getLogin());
-		System.out.println("Email: " + usuario.getEmail());
-		System.out.println("Senha: " + usuario.getSenha());
-		System.out.println("Cpf: " + usuario.getCpf());
-		System.out.println("Idade: " + usuario.getIdade());
-		System.out.println("Profissao: " + usuario.getProfissao());
-		System.out.print("Tipo de Conta: ");
-		if(usuario.getTipoUsuario() == 3) {
-			System.out.println("Free");
-		}else if(usuario.getTipoUsuario() == 2){
-			System.out.println("Premium");
-		}else {
-			System.out.println("Administrador");
-		}
+		usuario.toString();
 		
 	}
 	
-	
 	@Override
 	public void acessarModulo() {
-		// TODO Auto-generated method stub
-		
+		modulo.mostrarAssuntos();	
 	}
 
 	@Override
 	public void acessarAssunto() {
-		// TODO Auto-generated method stub
+		modulo.mostrarExercicios(0);
 		
 	}
 
 	@Override
-	public void acessarExercicio() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void desenhaInterface() {
-		System.out.println("-------------------------------------");
+	public void fazExercicio() {
+		modulo.fazerExercicio(0, 0);
+		modulo.fazerExercicio(0, 1);
+		modulo.atualizarProgressoAssunto(0);
+		modulo.atualizarProgresso();
 	}
 
 }

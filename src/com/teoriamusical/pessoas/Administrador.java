@@ -2,7 +2,7 @@ package com.teoriamusical.pessoas;
 
 import com.teoriamusical.app.Gerenciamento;
 
-public class Administrador extends Usuario implements AcoesAdministrador{
+public class Administrador extends Usuario{
 	
 	public Administrador(String nome, String login, String email, String senha) {
 		super(nome, login, email, senha);
