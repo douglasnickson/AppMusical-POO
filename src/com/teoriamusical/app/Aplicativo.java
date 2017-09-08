@@ -17,7 +17,7 @@ public class Aplicativo implements AcoesAplicativo{
 
 	@Override
 	public String toString() {
-		return "Aplicativo [Aluno=" + aluno + ", Modulo=" + modulo + "]";
+		return "Aplicativo [Aluno=" + aluno.getLogin() + ", Modulo=" + modulo.getNome() + ", Progresso=" + modulo.getProgresso() + ", " + modulo.getAssunto() +"]";
 	}
 
 

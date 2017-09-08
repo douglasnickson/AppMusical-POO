@@ -58,4 +58,14 @@ public class Modulo extends Conteudo{
 			this.setConcluido(false);
 		}
 	}
+
+	public ArrayList<Assunto> getAssunto() {
+		return assunto;
+	}
+
+	public void setAssunto(ArrayList<Assunto> assunto) {
+		this.assunto = assunto;
+	}
+	
+	
 }

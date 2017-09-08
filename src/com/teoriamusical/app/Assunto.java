@@ -11,9 +11,9 @@ public class Assunto extends Conteudo{
 
 	@Override
 	public String toString() {
-		return "Assunto [nome=" + nome + ", progresso=" + progresso + ", premium="
-				+ premium + ", ativo=" + ativo + ",concluido=" + super.getConcluido() + ", exercicio=" + exercicio.toString() + "]";
+		return "Assunto [nome=" + nome + ", progresso=" + progresso + ", concluido=" + super.getConcluido() + ", " + exercicio.toString() + "]";
 	}
+	
 
 	public void cadastrarExercicio(Exercicio exercicio) {
 		this.exercicio.add(exercicio);
