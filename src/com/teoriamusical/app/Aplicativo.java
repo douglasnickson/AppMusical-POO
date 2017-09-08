@@ -1,7 +1,6 @@
 package com.teoriamusical.app;
 
 import com.teoriamusical.pessoas.Aluno;
-import com.teoriamusical.pessoas.Usuario;
 
 public class Aplicativo implements AcoesAplicativo{
 	
@@ -25,20 +24,10 @@ public class Aplicativo implements AcoesAplicativo{
 	public void mostrarModulo(Gerenciamento gerenciamento) {
 		gerenciamento.listarModulos();
 	}
-
-	@Override
-	public void mostrarAssunto(Gerenciamento gerenciamento) {
-		gerenciamento.listarAssunto();
-	}
-
-	@Override
-	public void mostrarExercicio(Gerenciamento gerenciamento) {
-		gerenciamento.listarExercicio();
-	}
 	
 	@Override
-	public void mostrarPerfil(Usuario usuario) {
-		usuario.toString();
+	public void mostrarPerfil(Aluno aluno) {
+		aluno.toString();
 		
 	}
 	
@@ -59,6 +48,10 @@ public class Aplicativo implements AcoesAplicativo{
 		modulo.fazerExercicio(0, 1);
 		modulo.atualizarProgressoAssunto(0);
 		modulo.atualizarProgresso();
+	}
+	
+	public void fazerComentario() {
+		modulo.fazerComentario(0, 0, "Muito Bom!");
 	}
 
 }

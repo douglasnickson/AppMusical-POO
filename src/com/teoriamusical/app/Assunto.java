@@ -48,4 +48,8 @@ public class Assunto extends Conteudo{
 	public void buscarExercicio(int i) {
 		exercicio.get(i).setConcluido(true);
 	}
+	
+	public void fazerComentario(int i, String comentario) {
+		exercicio.get(i).setComentarios(comentario);
+	}
 }

@@ -33,7 +33,11 @@ public class Modulo extends Conteudo{
 	}
 	
 	public void fazerExercicio(int i, int l) {
-		assunto.get(i).buscarExercicio(l);;
+		assunto.get(i).buscarExercicio(l);
+	}
+	
+	public void fazerComentario(int i, int l, String comentario) {
+		assunto.get(i).fazerComentario(i, comentario);
 	}
 	
 	public void atualizarProgressoAssunto(int i) {
@@ -58,6 +62,8 @@ public class Modulo extends Conteudo{
 			this.setConcluido(false);
 		}
 	}
+	
+	
 
 	public ArrayList<Assunto> getAssunto() {
 		return assunto;

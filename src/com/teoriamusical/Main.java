@@ -51,6 +51,7 @@ public class Main {
 		app.acessarModulo();
 		app.acessarAssunto();
 		app.fazExercicio();
+		app.fazerComentario();
 		System.out.println(app.toString());
 	}
 
