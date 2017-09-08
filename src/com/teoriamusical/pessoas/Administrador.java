@@ -19,7 +19,6 @@ public class Administrador extends Usuario{
 		this.status = true;
 		System.out.println("Login Realizado!");
 		System.out.println("Entrando no Gerenciamento....");
-		System.out.println("----------------------------------------");
 	}
 	
 	public void fazLogout() {

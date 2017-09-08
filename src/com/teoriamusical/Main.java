@@ -30,24 +30,24 @@ public class Main {
 		exercicio[1] = new Exercicio("Verdadeiro ou Falso", true, false);
 		
 		Gerenciamento gerenciamento = new Gerenciamento();
-		
-		System.out.println("----------------------------------------");
-		System.out.println("            BEM VINDO AO APP            ");
-		System.out.println("----------------------------------------");
-		
 		admin[0].fazCadastro(gerenciamento);
 		admin[0].fazLogin();
-		
-		aluno[0].fazCadastro(gerenciamento);
-		aluno[0].fazLogin();
-		
 		gerenciamento.cadastrarModulo(admin[0], modulo[0]);
 		gerenciamento.cadastrarAssunto(admin[0], modulo[0], assunto[0]);
 		gerenciamento.cadastrarExercicio(admin[0], assunto[0], exercicio[0]);
 		gerenciamento.cadastrarExercicio(admin[0], assunto[0], exercicio[1]);
 		gerenciamento.cadastroAdministrador(admin[0], admin[1]);
 		
-		Aplicativo app = new Aplicativo(aluno[0], modulo[0]);
+		System.out.println("----------------------------------------");
+		System.out.println("            BEM VINDO AO APP            ");
+		System.out.println("----------------------------------------");
+	
+		aluno[0].fazCadastro(gerenciamento);
+		aluno[0].fazLogin();
+		
+		gerenciamento.listarModulos();
+		
+		Aplicativo app = new Aplicativo(aluno[0], gerenciamento.buscarModulo(0));
 		app.acessarModulo();
 		app.acessarAssunto();
 		app.fazerExercicio();

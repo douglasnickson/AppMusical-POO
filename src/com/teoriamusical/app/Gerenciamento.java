@@ -27,9 +27,17 @@ public class Gerenciamento implements AcoesGerenciamento{
 	@Override
 	public void listarModulos() {
 		System.out.println("Listando os modulos do curso....");
+		int index = 0;
 		for (Modulo i: modulo) {
-			i.getNome();
-		}	
+			System.out.println("[" + index + "] "  + i.getNome());
+			index += 1;
+		}
+		System.out.println("----------------------------------------");
+	}
+	
+	@Override
+	public Modulo buscarModulo(int index) {
+		return this.modulo.get(index);
 	}
 	
 	@Override
@@ -47,7 +55,8 @@ public class Gerenciamento implements AcoesGerenciamento{
 		System.out.println("Listando os Assuntos do curso....");
 		for (Assunto i: assunto) {
 			i.getNome();
-		}	
+		}
+		
 	}
 
 	@Override

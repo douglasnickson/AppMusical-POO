@@ -7,6 +7,7 @@ public interface AcoesGerenciamento {
 
 	public abstract void cadastrarModulo(Administrador admin, Modulo modulo);
 	public abstract void listarModulos();
+	public abstract Modulo buscarModulo(int index);
 	public abstract void cadastrarAssunto(Administrador admin, Modulo modulo, Assunto assunto);
 	public abstract void listarAssunto();
 	public abstract void cadastrarExercicio(Administrador admin, Assunto assunto, Exercicio exercicio);

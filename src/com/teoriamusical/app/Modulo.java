@@ -24,8 +24,9 @@ public class Modulo extends Conteudo{
 	//Metodo que lista dos Assuntos
 	public void mostrarAssuntos() {
 		for (int i =0; i<assunto.size(); i++) {
-			System.out.println(i + " - " + assunto.get(i).getNome());
+			System.out.println("["+i+"] " + assunto.get(i).getNome());
 		}
+		System.out.println("----------------------------------------");
 	}
 	
 	public void mostrarExercicios(int i) {

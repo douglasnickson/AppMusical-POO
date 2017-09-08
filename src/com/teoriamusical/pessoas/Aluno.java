@@ -1,9 +1,7 @@
 package com.teoriamusical.pessoas;
 
-import com.teoriamusical.app.Assunto;
-import com.teoriamusical.app.Exercicio;
 import com.teoriamusical.app.Gerenciamento;
-import com.teoriamusical.app.Modulo;
+
 
 public class Aluno extends Usuario{
 	
@@ -28,7 +26,7 @@ public class Aluno extends Usuario{
 		if(this.getCadastro()) {
 			this.setStatus(true);
 			System.out.println("Logado com Sucesso!");
-			System.out.println("Entrando no App....");
+			System.out.println("Abrindo Interface....");
 			System.out.println("----------------------------------------");
 		}else {
 			System.out.println("Faca o Cadastro antes de Logar!");

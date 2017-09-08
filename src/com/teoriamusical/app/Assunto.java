@@ -22,8 +22,9 @@ public class Assunto extends Conteudo{
 	//Metodo que lista dos Assuntos
 	public void mostrarExercicios() {
 		for (int i =0; i<exercicio.size(); i++) {
-			System.out.println(i + " - " + exercicio.get(i).getNome());
+			System.out.println("["+i+"] " + exercicio.get(i).getNome());
 		}
+		System.out.println("----------------------------------------");
 	}
 	
 	public void atualizarProgresso() {
