@@ -16,6 +16,7 @@ public class Main {
 		
 		Aluno aluno[] = new Aluno[5];
 		aluno[0] = new Aluno("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345");
+		aluno[1] = new Aluno("Denys", 97, "255548", "denys", "denys@email.com", "12345");
 		
 		Administrador admin[] = new Administrador[2];
 		admin[0] = new Administrador("Nickson", "dnick", "nickson@admin.com", "123545");
@@ -71,28 +72,37 @@ public class Main {
 		System.out.println("            BEM VINDO AO APP            ");
 		System.out.println("----------------------------------------");
 		
-		int index = 0;
-		for(Aluno i: aluno) {
-			if(i != null) {
-				System.out.println("["+ index + "] " +i.getNome());
-				index += 1;
-			}else{
-				break;
-			}
-		}
-				
-		System.out.print("Escolha um Usuario: ");
-		opAluno = entrada.nextInt();
-		
 		do {
-			System.out.print("[1] Fazer Cadastro [2] Login [-1] Sair: ");
+			
+			System.out.println("[1] Escolher Usuario");
+			System.out.println("[2] Fazer Cadastro");
+			System.out.println("[3] Fazer Login");
+			System.out.println("[0] Sair");
+			System.out.print("Escolha uma Opcao: ");
 			op = entrada.nextInt();
+			System.out.println("----------------------------------------");
 			
 			switch (op) {
 			case 1:
+				int index = 0;
+				for(Aluno i: aluno) {
+					if(i != null) {
+						System.out.println("["+ index + "] " +i.getNome());
+						index += 1;
+					}else{
+						break;
+					}
+				}
+				System.out.print("Escolha um Usuario: ");
+				opAluno = entrada.nextInt();
+				System.out.println("----------------------------------------");		
+				break;
+				
+			case 2:
 				aluno[opAluno].fazCadastro(gerenciamento);
 				break;
-			case 2:
+				
+			case 3:
 				aluno[opAluno].fazLogin();
 				if(aluno[opAluno].getCadastro()) {
 					gerenciamento.listarModulos();
@@ -118,7 +128,7 @@ public class Main {
 				break;
 			}
 
-		}while(op >= 0);
+		}while(op > 0);
 		
 	}
 

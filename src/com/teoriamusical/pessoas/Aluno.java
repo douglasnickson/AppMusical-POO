@@ -26,10 +26,10 @@ public class Aluno extends Usuario{
 		if(this.getCadastro()) {
 			this.setStatus(true);
 			System.out.println("Logado com Sucesso!");
-			System.out.println("Abrindo Interface....");
 			System.out.println("----------------------------------------");
 		}else {
 			System.out.println("Faca o Cadastro antes de Logar!");
+			System.out.println("----------------------------------------");
 		}
 		
 	}
@@ -50,6 +50,8 @@ public class Aluno extends Usuario{
 		}else {
 			this.setCadastro(true);
 			gerenciamento.cadastroUsuario(this);
+			System.out.println("Cadastrado com Sucesso!");
+			System.out.println("----------------------------------------");
 		}
 	}
 
