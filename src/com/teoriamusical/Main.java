@@ -63,6 +63,8 @@ public class Main {
 		
 		Scanner entrada = new Scanner(System.in);
 		int op = -1;
+		int op2 = -1;
+		int op3 = -1;
 		int opAluno = 0;
 		int opMod = 0;
 		int opAss = 0;
@@ -106,6 +108,11 @@ public class Main {
 				aluno[opAluno].fazLogin();
 				if(aluno[opAluno].getCadastro()) {
 					
+					gerenciamento.listarModulos();
+					System.out.print("Escolha um Modulo: ");
+					opMod = entrada.nextInt();
+					System.out.println("----------------------------------------");
+					Aplicativo app = new Aplicativo(aluno[opAluno], gerenciamento.buscarModulo(opMod));
 					
 					do {
 						
@@ -113,18 +120,14 @@ public class Main {
 						System.out.println("[2] Mostrar Progresso");
 						System.out.println("[3] Mostrar Perfil");
 						System.out.println("[4] Assinar Premium");
+						System.out.println("[5] Gerar Certificado");
 						System.out.println("[0] Sair");
 						System.out.print("Escolha uma Opcao: ");
-						op = entrada.nextInt();
+						op2 = entrada.nextInt();
 						System.out.println("----------------------------------------");
 						
-						switch (op) {
+						switch (op2) {
 						case 1:
-							gerenciamento.listarModulos();
-							System.out.print("Escolha um Modulo: ");
-							opMod = entrada.nextInt();
-							System.out.println("----------------------------------------");
-							Aplicativo app = new Aplicativo(aluno[opAluno], gerenciamento.buscarModulo(opMod));
 							
 							app.acessarModulo();
 
@@ -143,38 +146,56 @@ public class Main {
 								System.out.println("[3] Fazer Avaliacao");
 								System.out.println("[0] Sair");
 								System.out.print("Escolha uma Opcao: ");
-								op = entrada.nextInt();
+								op3 = entrada.nextInt();
 								System.out.println("----------------------------------------");
 								
-								switch (op) {
+								switch (op3) {
 								case 1:
 									app.fazerExercicio(opAss, opExe);
 									break;
 								case 2:
+									String comentario;
 									System.out.print("Digite o Comentario: ");
-									String coment = entrada.next();
-									app.fazerComentario(opAss, opExe, coment);
+									comentario = entrada.next();
+									app.fazerComentario(opAss, opExe, comentario);
+									System.out.println("----------------------------------------");
 									break;
 								case 3:
 									System.out.print("Digite a Nota: ");
 									float avaliacao = entrada.nextFloat();
 									app.fazerAvaliacao(opAss, opExe, avaliacao);
+									System.out.println("----------------------------------------");
 									break;
 									
 								default:
 									break;
 								}//Fim terceiro Switch
 								
-							}while(op > 0);
+							}while(op3 > 0);
 							
 							break;
 						case 2:
+							System.out.println("PROGRESSO DO USUARIO");
+							System.out.println(app.toString());
+							System.out.println("----------------------------------------");
+							break;
+						case 3:
+							System.out.println("PERFIL DO USUARIO");
+							app.mostrarPerfil();
+							System.out.println("----------------------------------------");
+							break;
+						case 4:
+							app.assinarPremium();
+							System.out.println("----------------------------------------");
+							break;
+						case 5:
+							app.gerarCertificado();
 							break;
 						default:
 							break;
 						}//Fecha segundo Switch
 						
-					}while(op > 0);
+					}while(op2 > 0);
 				}
 				break;
 				

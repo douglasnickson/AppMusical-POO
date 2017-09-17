@@ -62,6 +62,7 @@ public class Aplicativo implements AcoesAplicativo{
 	@Override
 	public void assinarPremium() {
 		this.aluno.setTipoUsuario(2);
+		System.out.println("Premium Assinado com Sucesso!");
 	}
 	
 	@Override
