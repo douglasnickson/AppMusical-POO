@@ -110,8 +110,9 @@ public class Main {
 					do {
 						
 						System.out.println("[1] Acessar Modulo");
-						System.out.println("[2] Mostrar Perfil");
-						System.out.println("[3] Assinar Premium");
+						System.out.println("[2] Mostrar Progresso");
+						System.out.println("[3] Mostrar Perfil");
+						System.out.println("[4] Assinar Premium");
 						System.out.println("[0] Sair");
 						System.out.print("Escolha uma Opcao: ");
 						op = entrada.nextInt();
@@ -134,7 +135,38 @@ public class Main {
 							app.acessarAssunto(opAss);
 							System.out.print("Escolha um Exercicio: ");
 							opExe = entrada.nextInt();
-							app.fazerExercicio(opMod, opExe);
+							
+							do {
+								
+								System.out.println("[1] Fazer Exercicio");
+								System.out.println("[2] Fazer Comentario");
+								System.out.println("[3] Fazer Avaliacao");
+								System.out.println("[0] Sair");
+								System.out.print("Escolha uma Opcao: ");
+								op = entrada.nextInt();
+								System.out.println("----------------------------------------");
+								
+								switch (op) {
+								case 1:
+									app.fazerExercicio(opAss, opExe);
+									break;
+								case 2:
+									System.out.print("Digite o Comentario: ");
+									String coment = entrada.next();
+									app.fazerComentario(opAss, opExe, coment);
+									break;
+								case 3:
+									System.out.print("Digite a Nota: ");
+									float avaliacao = entrada.nextFloat();
+									app.fazerAvaliacao(opAss, opExe, avaliacao);
+									break;
+									
+								default:
+									break;
+								}//Fim terceiro Switch
+								
+							}while(op > 0);
+							
 							break;
 						case 2:
 							break;
