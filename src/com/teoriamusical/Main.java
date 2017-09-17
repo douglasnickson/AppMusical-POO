@@ -105,28 +105,50 @@ public class Main {
 			case 3:
 				aluno[opAluno].fazLogin();
 				if(aluno[opAluno].getCadastro()) {
-					gerenciamento.listarModulos();
 					
-					System.out.print("Escolha um Modulo ou -1 Sair: ");
-					opMod = entrada.nextInt();
 					
-					Aplicativo app = new Aplicativo(aluno[opAluno], gerenciamento.buscarModulo(opMod));
-					
-					System.out.print("Escolha Um Assunto: ");
-					app.acessarModulo();
-					opAss = entrada.nextInt();
-					app.acessarAssunto(opAss);
-					
-					System.out.print("Escolha um Exercicio: ");
-					opExe = entrada.nextInt();
-					app.fazerExercicio(opMod, opExe);
+					do {
+						
+						System.out.println("[1] Acessar Modulo");
+						System.out.println("[2] Mostrar Perfil");
+						System.out.println("[3] Assinar Premium");
+						System.out.println("[0] Sair");
+						System.out.print("Escolha uma Opcao: ");
+						op = entrada.nextInt();
+						System.out.println("----------------------------------------");
+						
+						switch (op) {
+						case 1:
+							gerenciamento.listarModulos();
+							System.out.print("Escolha um Modulo: ");
+							opMod = entrada.nextInt();
+							System.out.println("----------------------------------------");
+							Aplicativo app = new Aplicativo(aluno[opAluno], gerenciamento.buscarModulo(opMod));
+							
+							app.acessarModulo();
+
+							System.out.print("Escolha Um Assunto: ");
+							opAss = entrada.nextInt();
+							System.out.println("----------------------------------------");
+							
+							app.acessarAssunto(opAss);
+							System.out.print("Escolha um Exercicio: ");
+							opExe = entrada.nextInt();
+							app.fazerExercicio(opMod, opExe);
+							break;
+						case 2:
+							break;
+						default:
+							break;
+						}//Fecha segundo Switch
+						
+					}while(op > 0);
 				}
 				break;
 				
-				
 			default:
 				break;
-			}
+			}//Fecha primeiro Switch
 
 		}while(op > 0);
 		

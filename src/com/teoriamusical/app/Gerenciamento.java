@@ -26,7 +26,8 @@ public class Gerenciamento implements AcoesGerenciamento{
 
 	@Override
 	public void listarModulos() {
-		System.out.println("Listando os modulos do curso....");
+		System.out.println("SELECIONE O MODULO");
+		System.out.println("----------------------------------------");
 		int index = 0;
 		for (Modulo i: modulo) {
 			System.out.println("[" + index + "] "  + i.getNome());
@@ -52,7 +53,7 @@ public class Gerenciamento implements AcoesGerenciamento{
 	
 	@Override
 	public void listarAssunto() {
-		System.out.println("Listando os Assuntos do curso....");
+		System.out.println("SELECIONE O ASSUNTO");
 		for (Assunto i: assunto) {
 			i.getNome();
 		}
@@ -72,7 +73,6 @@ public class Gerenciamento implements AcoesGerenciamento{
 	
 	@Override
 	public void listarExercicio() {
-		System.out.println("Listando os Exercicios do curso....");
 		for (Exercicio i: exercicio) {
 			i.getNome();
 		}		

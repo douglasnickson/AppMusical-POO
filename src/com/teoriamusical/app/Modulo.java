@@ -23,6 +23,8 @@ public class Modulo extends Conteudo{
 	
 	//Metodo que lista dos Assuntos
 	public void mostrarAssuntos() {
+		System.out.println("SELECIONE O ASSUNTO");
+		System.out.println("----------------------------------------");
 		for (int i =0; i<assunto.size(); i++) {
 			System.out.println("["+i+"] " + assunto.get(i).getNome());
 		}
