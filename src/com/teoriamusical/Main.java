@@ -1,5 +1,7 @@
 package com.teoriamusical;
 
+import java.util.Scanner;
+
 import com.teoriamusical.app.Aplicativo;
 import com.teoriamusical.app.Assunto;
 import com.teoriamusical.app.Exercicio;
@@ -38,25 +40,68 @@ public class Main {
 		gerenciamento.cadastrarExercicio(admin[0], assunto[0], exercicio[1]);
 		gerenciamento.cadastroAdministrador(admin[0], admin[1]);
 		
+		//System.out.println("----------------------------------------");
+		//System.out.println("            BEM VINDO AO APP            ");
+		//System.out.println("----------------------------------------");
+	
+		//aluno[0].fazCadastro(gerenciamento);
+		//aluno[0].fazLogin();
+		
+		//gerenciamento.listarModulos();
+		
+		//Aplicativo app = new Aplicativo(aluno[0], gerenciamento.buscarModulo(0));
+		//app.acessarModulo();
+		//app.acessarAssunto();
+		//app.fazerExercicio();
+		//app.fazerComentario();
+		//app.fazerAvaliacao();
+		//app.assinarPremium();
+		//app.gerarCertificado();
+		//app.mostrarPerfil();
+		//System.out.println(app.toString());
+		
+		Scanner entrada = new Scanner(System.in);
+		int op = -1;
+		int opAluno = 0;
+		int opCad = 0;
+		
 		System.out.println("----------------------------------------");
 		System.out.println("            BEM VINDO AO APP            ");
 		System.out.println("----------------------------------------");
-	
-		aluno[0].fazCadastro(gerenciamento);
-		aluno[0].fazLogin();
 		
-		gerenciamento.listarModulos();
+		int index = 0;
+		for(Aluno i: aluno) {
+			if(i != null) {
+				System.out.println("["+ index + "] " +i.getNome());
+				index += 1;
+			}else{
+				break;
+			}
+		}
+				
+		System.out.print("Escolha um Usuario: ");
+		opAluno = entrada.nextInt();
 		
-		Aplicativo app = new Aplicativo(aluno[0], gerenciamento.buscarModulo(0));
-		app.acessarModulo();
-		app.acessarAssunto();
-		app.fazerExercicio();
-		app.fazerComentario();
-		app.fazerAvaliacao();
-		app.assinarPremium();
-		app.gerarCertificado();
-		app.mostrarPerfil();
-		System.out.println(app.toString());
+		do {
+			System.out.println("[1] Fazer Cadastro [2] Login [-1] Sair: ");
+			op = entrada.nextInt();
+			
+			switch (op) {
+			case 1:
+				aluno[opAluno].fazCadastro(gerenciamento);
+				break;
+			case 2:
+				aluno[opAluno].fazLogin();
+				if(aluno[opAluno].getCadastro()) {
+					gerenciamento.listarModulos();
+				}
+				break;
+			default:
+				break;
+			}
+
+		}while(op >= 0);
+		
 	}
 
 }

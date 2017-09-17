@@ -127,8 +127,10 @@ public class Gerenciamento implements AcoesGerenciamento{
 	
 	@Override
 	public void listarUsuario() {
+		int index = 0;
 		for(Aluno i: aluno) {
-			i.getNome();
+			System.out.println("[" + index + "] "  + i.getNome());
+			index += 1;
 		}
 
 	}
