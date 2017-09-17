@@ -65,6 +65,7 @@ public class Main {
 		int opAluno = 0;
 		int opMod = 0;
 		int opAss = 0;
+		int opExe = 0;
 		
 		System.out.println("----------------------------------------");
 		System.out.println("            BEM VINDO AO APP            ");
@@ -107,6 +108,8 @@ public class Main {
 					app.acessarAssunto(opAss);
 					
 					System.out.print("Escolha um Exercicio: ");
+					opExe = entrada.nextInt();
+					app.fazerExercicio(opMod, opExe);
 				}
 				break;
 				
