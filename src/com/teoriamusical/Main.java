@@ -106,7 +106,7 @@ public class Main {
 					opAss = entrada.nextInt();
 					app.acessarAssunto(opAss);
 					
-					//System.out.print();
+					System.out.print("Escolha um Exercicio: ");
 				}
 				break;
 				
