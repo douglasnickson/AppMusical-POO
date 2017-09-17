@@ -94,8 +94,12 @@ public class Main {
 				aluno[opAluno].fazLogin();
 				if(aluno[opAluno].getCadastro()) {
 					gerenciamento.listarModulos();
+					System.out.println("Escolha um Modulo ou -1 Sair: ");
+					op = entrada.nextInt();
 				}
 				break;
+				
+				
 			default:
 				break;
 			}
