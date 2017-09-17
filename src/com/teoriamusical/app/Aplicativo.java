@@ -37,8 +37,8 @@ public class Aplicativo implements AcoesAplicativo{
 	}
 
 	@Override
-	public void acessarAssunto() {
-		modulo.mostrarExercicios(0);
+	public void acessarAssunto(int i) {
+		modulo.mostrarExercicios(i);
 		
 	}
 

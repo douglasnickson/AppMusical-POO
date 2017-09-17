@@ -63,7 +63,8 @@ public class Main {
 		Scanner entrada = new Scanner(System.in);
 		int op = -1;
 		int opAluno = 0;
-		int opCad = 0;
+		int opMod = 0;
+		int opAss = 0;
 		
 		System.out.println("----------------------------------------");
 		System.out.println("            BEM VINDO AO APP            ");
@@ -83,7 +84,7 @@ public class Main {
 		opAluno = entrada.nextInt();
 		
 		do {
-			System.out.println("[1] Fazer Cadastro [2] Login [-1] Sair: ");
+			System.out.print("[1] Fazer Cadastro [2] Login [-1] Sair: ");
 			op = entrada.nextInt();
 			
 			switch (op) {
@@ -94,8 +95,18 @@ public class Main {
 				aluno[opAluno].fazLogin();
 				if(aluno[opAluno].getCadastro()) {
 					gerenciamento.listarModulos();
-					System.out.println("Escolha um Modulo ou -1 Sair: ");
-					op = entrada.nextInt();
+					
+					System.out.print("Escolha um Modulo ou -1 Sair: ");
+					opMod = entrada.nextInt();
+					
+					Aplicativo app = new Aplicativo(aluno[opAluno], gerenciamento.buscarModulo(opMod));
+					
+					System.out.print("Escolha Um Assunto: ");
+					app.acessarModulo();
+					opAss = entrada.nextInt();
+					app.acessarAssunto(opAss);
+					
+					//System.out.print();
 				}
 				break;
 				
