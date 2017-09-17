@@ -69,15 +69,18 @@ public class Aplicativo implements AcoesAplicativo{
 	public void gerarCertificado() {
 		if(this.aluno.getTipoUsuario() == 2) {
 			if(modulo.getConcluido()) {
+				System.out.println("CERTIFICADO GERADO COM SUCESSO!");
 				System.out.println("Aluno: " + this.aluno.getNome());
 				System.out.println("Concluiu o: " + this.modulo.getNome());
 				System.out.print("Com os seguintes assuntos: ");
 				modulo.mostrarAssuntos();	
 			}else {
 				System.out.println("Voce deve concluir o modulo antes!");
+				System.out.println("----------------------------------------");
 			}
 		}else {
 			System.out.println("Apenas Assinantes podem Gerar Certificado!");
+			System.out.println("----------------------------------------");
 		}
 	}
 

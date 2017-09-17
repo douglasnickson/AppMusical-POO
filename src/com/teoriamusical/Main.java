@@ -65,10 +65,10 @@ public class Main {
 		int op = -1;
 		int op2 = -1;
 		int op3 = -1;
-		int opAluno = 0;
-		int opMod = 0;
-		int opAss = 0;
-		int opExe = 0;
+		int opAluno = -1;
+		int opMod = -1;
+		int opAss = -1;
+		int opExe = -1;
 		
 		System.out.println("----------------------------------------");
 		System.out.println("            BEM VINDO AO APP            ");
@@ -101,101 +101,123 @@ public class Main {
 				break;
 				
 			case 2:
-				aluno[opAluno].fazCadastro(gerenciamento);
+				if(opAluno >= 0) {
+					aluno[opAluno].fazCadastro(gerenciamento);
+				}else {
+					System.out.println("Escolha um Usuario para Cadastrar!");
+					System.out.println("----------------------------------------");	
+				}
 				break;
 				
 			case 3:
-				aluno[opAluno].fazLogin();
-				if(aluno[opAluno].getCadastro()) {
-					
-					gerenciamento.listarModulos();
-					System.out.print("Escolha um Modulo: ");
-					opMod = entrada.nextInt();
-					System.out.println("----------------------------------------");
-					Aplicativo app = new Aplicativo(aluno[opAluno], gerenciamento.buscarModulo(opMod));
-					
-					do {
+				if(opAluno >= 0) {
+					aluno[opAluno].fazLogin();
+					if(aluno[opAluno].getCadastro()) {
 						
-						System.out.println("[1] Acessar Modulo");
-						System.out.println("[2] Mostrar Progresso");
-						System.out.println("[3] Mostrar Perfil");
-						System.out.println("[4] Assinar Premium");
-						System.out.println("[5] Gerar Certificado");
-						System.out.println("[0] Sair");
-						System.out.print("Escolha uma Opcao: ");
-						op2 = entrada.nextInt();
-						System.out.println("----------------------------------------");
-						
-						switch (op2) {
-						case 1:
-							
-							app.acessarModulo();
-
-							System.out.print("Escolha Um Assunto: ");
-							opAss = entrada.nextInt();
+						boolean achouModulo = false;
+						do {
+							gerenciamento.listarModulos();
+							System.out.print("Escolha um Modulo: ");
+							opMod = entrada.nextInt();
 							System.out.println("----------------------------------------");
 							
-							app.acessarAssunto(opAss);
-							System.out.print("Escolha um Exercicio: ");
-							opExe = entrada.nextInt();
+							try {
+								gerenciamento.buscarModulo(opMod);
+								achouModulo = true;
+							} catch (IndexOutOfBoundsException e) {
+								System.out.println("Escolha um Modulo Corretamente!");
+								System.out.println("----------------------------------------");
+							}
 							
-							do {
+						}while(achouModulo == false);
+						
+						Aplicativo app = new Aplicativo(aluno[opAluno], gerenciamento.buscarModulo(opMod));
+						do {
+							
+							System.out.println("[1] Acessar Modulo");
+							System.out.println("[2] Mostrar Progresso");
+							System.out.println("[3] Mostrar Perfil");
+							System.out.println("[4] Assinar Premium");
+							System.out.println("[5] Gerar Certificado");
+							System.out.println("[0] Sair");
+							System.out.print("Escolha uma Opcao: ");
+							op2 = entrada.nextInt();
+							System.out.println("----------------------------------------");
+							
+							switch (op2) {
+							case 1:
 								
-								System.out.println("[1] Fazer Exercicio");
-								System.out.println("[2] Fazer Comentario");
-								System.out.println("[3] Fazer Avaliacao");
-								System.out.println("[0] Sair");
-								System.out.print("Escolha uma Opcao: ");
-								op3 = entrada.nextInt();
+								app.acessarModulo();
+
+								System.out.print("Escolha Um Assunto: ");
+								opAss = entrada.nextInt();
 								System.out.println("----------------------------------------");
 								
-								switch (op3) {
-								case 1:
-									app.fazerExercicio(opAss, opExe);
-									break;
-								case 2:
-									String comentario;
-									System.out.print("Digite o Comentario: ");
-									comentario = entrada.next();
-									app.fazerComentario(opAss, opExe, comentario);
-									System.out.println("----------------------------------------");
-									break;
-								case 3:
-									System.out.print("Digite a Nota: ");
-									float avaliacao = entrada.nextFloat();
-									app.fazerAvaliacao(opAss, opExe, avaliacao);
-									System.out.println("----------------------------------------");
-									break;
-									
-								default:
-									break;
-								}//Fim terceiro Switch
+								app.acessarAssunto(opAss);
+								System.out.print("Escolha um Exercicio: ");
+								opExe = entrada.nextInt();
 								
-							}while(op3 > 0);
+								do {
+									
+									System.out.println("[1] Fazer Exercicio");
+									System.out.println("[2] Fazer Comentario");
+									System.out.println("[3] Fazer Avaliacao");
+									System.out.println("[0] Sair");
+									System.out.print("Escolha uma Opcao: ");
+									op3 = entrada.nextInt();
+									System.out.println("----------------------------------------");
+									
+									switch (op3) {
+									case 1:
+										app.fazerExercicio(opAss, opExe);
+										break;
+									case 2:
+										String comentario;
+										System.out.print("Digite o Comentario: ");
+										comentario = entrada.next();
+										app.fazerComentario(opAss, opExe, comentario);
+										System.out.println("----------------------------------------");
+										break;
+									case 3:
+										System.out.print("Digite a Nota: ");
+										float avaliacao = entrada.nextFloat();
+										app.fazerAvaliacao(opAss, opExe, avaliacao);
+										System.out.println("----------------------------------------");
+										break;
+										
+									default:
+										break;
+									}//Fim terceiro Switch
+									
+								}while(op3 > 0);
+								
+								break;
+							case 2:
+								System.out.println("PROGRESSO DO USUARIO");
+								System.out.println(app.toString());
+								System.out.println("----------------------------------------");
+								break;
+							case 3:
+								System.out.println("PERFIL DO USUARIO");
+								app.mostrarPerfil();
+								System.out.println("----------------------------------------");
+								break;
+							case 4:
+								app.assinarPremium();
+								System.out.println("----------------------------------------");
+								break;
+							case 5:
+								app.gerarCertificado();
+								break;
+							default:
+								break;
+							}//Fecha segundo Switch
 							
-							break;
-						case 2:
-							System.out.println("PROGRESSO DO USUARIO");
-							System.out.println(app.toString());
-							System.out.println("----------------------------------------");
-							break;
-						case 3:
-							System.out.println("PERFIL DO USUARIO");
-							app.mostrarPerfil();
-							System.out.println("----------------------------------------");
-							break;
-						case 4:
-							app.assinarPremium();
-							System.out.println("----------------------------------------");
-							break;
-						case 5:
-							app.gerarCertificado();
-							break;
-						default:
-							break;
-						}//Fecha segundo Switch
-						
-					}while(op2 > 0);
+						}while(op2 > 0);
+					}
+				}else {
+					System.out.println("Escolha um Usuario para Logar!");
+					System.out.println("----------------------------------------");	
 				}
 				break;
 				
