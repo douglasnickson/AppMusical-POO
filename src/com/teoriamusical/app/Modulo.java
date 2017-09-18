@@ -6,7 +6,7 @@ public class Modulo extends Conteudo{
 	private ArrayList<Assunto> assunto = new ArrayList<>();
 	
 	//Metodo construtor
-	public Modulo(String nome, boolean premium, boolean ativo) {
+	public Modulo(String nome, boolean ativo, boolean premium) {
 		super(nome, ativo, premium);
 	}
 

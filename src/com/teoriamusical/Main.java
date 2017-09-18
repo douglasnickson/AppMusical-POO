@@ -24,9 +24,15 @@ public class Main {
 		
 		Modulo modulo[] = new Modulo[10];
 		modulo[0] = new Modulo("Modulo 1 - Basico", true, false);
+		modulo[1] = new Modulo("Modulo 2 - Intermediario", true, false);
+		modulo[2] = new Modulo("Modulo 3 - Avancado", true, true);
 		
 		Assunto assunto[] = new Assunto[10];
-		assunto[0] = new Assunto("Notas Musicais", false, true);
+		assunto[0] = new Assunto("Notas Musicais", true, false);
+		assunto[1] = new Assunto("Acidentes Musicais", true, false);
+		assunto[2] = new Assunto("Escalas", true, false);
+		assunto[3] = new Assunto("Acordes", true, false);
+		assunto[4] = new Assunto("Campo Harmonico", true, true);
 		
 		Exercicio exercicio[] = new Exercicio[10];
 		exercicio[0] = new Exercicio("Quiz", true, false);
@@ -35,10 +41,29 @@ public class Main {
 		Gerenciamento gerenciamento = new Gerenciamento();
 		admin[0].fazCadastro(gerenciamento);
 		admin[0].fazLogin();
+		
 		gerenciamento.cadastrarModulo(admin[0], modulo[0]);
+		gerenciamento.cadastrarModulo(admin[0], modulo[1]);
+		gerenciamento.cadastrarModulo(admin[0], modulo[2]);
+		
 		gerenciamento.cadastrarAssunto(admin[0], modulo[0], assunto[0]);
+		gerenciamento.cadastrarAssunto(admin[0], modulo[1], assunto[1]);
+		gerenciamento.cadastrarAssunto(admin[0], modulo[1], assunto[2]);
+		gerenciamento.cadastrarAssunto(admin[0], modulo[2], assunto[3]);
+		gerenciamento.cadastrarAssunto(admin[0], modulo[2], assunto[4]);
+		
 		gerenciamento.cadastrarExercicio(admin[0], assunto[0], exercicio[0]);
 		gerenciamento.cadastrarExercicio(admin[0], assunto[0], exercicio[1]);
+		gerenciamento.cadastrarExercicio(admin[0], assunto[1], exercicio[0]);
+		gerenciamento.cadastrarExercicio(admin[0], assunto[1], exercicio[1]);
+		gerenciamento.cadastrarExercicio(admin[0], assunto[2], exercicio[0]);
+		gerenciamento.cadastrarExercicio(admin[0], assunto[2], exercicio[1]);
+		gerenciamento.cadastrarExercicio(admin[0], assunto[3], exercicio[0]);
+		gerenciamento.cadastrarExercicio(admin[0], assunto[3], exercicio[1]);
+		gerenciamento.cadastrarExercicio(admin[0], assunto[4], exercicio[0]);
+		gerenciamento.cadastrarExercicio(admin[0], assunto[4], exercicio[1]);
+		
+		
 		gerenciamento.cadastroAdministrador(admin[0], admin[1]);
 		
 		//System.out.println("----------------------------------------");
@@ -227,6 +252,8 @@ public class Main {
 
 		}while(op > 0);
 		
+		System.out.println("Ate Mais, Volte Sempre!!!!");
+		System.out.println("----------------------------------------");	
 	}
 
 }

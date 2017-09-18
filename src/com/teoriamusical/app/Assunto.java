@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Assunto extends Conteudo{
 	private ArrayList<Exercicio> exercicio = new ArrayList<>();
 	
-	public Assunto(String nome, boolean premium, boolean ativo) {
+	public Assunto(String nome, boolean ativo, boolean premium) {
 		super(nome, ativo, premium);
 	}
 
