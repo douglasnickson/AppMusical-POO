@@ -164,6 +164,7 @@ public class Main {
 							System.out.println("[3] Mostrar Perfil");
 							System.out.println("[4] Assinar Premium");
 							System.out.println("[5] Gerar Certificado");
+							System.out.println("[6] Escolher Outro Modulo");
 							System.out.println("[0] Sair");
 							System.out.print("Escolha uma Opcao: ");
 							op2 = entrada.nextInt();
@@ -234,6 +235,29 @@ public class Main {
 							case 5:
 								app.gerarCertificado();
 								break;
+								
+							case 6:
+								achouModulo = false;
+								do {
+									gerenciamento.listarModulos();
+									System.out.print("Escolha um Modulo: ");
+									opMod = entrada.nextInt();
+									System.out.println("----------------------------------------");
+									
+									try {
+										gerenciamento.buscarModulo(opMod);
+										achouModulo = true;
+									} catch (IndexOutOfBoundsException e) {
+										System.out.println("Escolha um Modulo Corretamente!");
+										System.out.println("----------------------------------------");
+									}
+									
+								}while(achouModulo == false);
+								
+								app = new Aplicativo(aluno[opAluno], gerenciamento.buscarModulo(opMod));
+								
+								break;
+								
 							default:
 								break;
 							}//Fecha segundo Switch
