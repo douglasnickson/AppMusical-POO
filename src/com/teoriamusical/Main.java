@@ -63,28 +63,7 @@ public class Main {
 		gerenciamento.cadastrarExercicio(admin[0], assunto[4], exercicio[0]);
 		gerenciamento.cadastrarExercicio(admin[0], assunto[4], exercicio[1]);
 		
-		
 		gerenciamento.cadastroAdministrador(admin[0], admin[1]);
-		
-		//System.out.println("----------------------------------------");
-		//System.out.println("            BEM VINDO AO APP            ");
-		//System.out.println("----------------------------------------");
-	
-		//aluno[0].fazCadastro(gerenciamento);
-		//aluno[0].fazLogin();
-		
-		//gerenciamento.listarModulos();
-		
-		//Aplicativo app = new Aplicativo(aluno[0], gerenciamento.buscarModulo(0));
-		//app.acessarModulo();
-		//app.acessarAssunto();
-		//app.fazerExercicio();
-		//app.fazerComentario();
-		//app.fazerAvaliacao();
-		//app.assinarPremium();
-		//app.gerarCertificado();
-		//app.mostrarPerfil();
-		//System.out.println(app.toString());
 		
 		Scanner entrada = new Scanner(System.in);
 		int op = -1;
@@ -104,6 +83,7 @@ public class Main {
 			System.out.println("[1] Escolher Usuario");
 			System.out.println("[2] Fazer Cadastro");
 			System.out.println("[3] Fazer Login");
+			System.out.println("[4] Cadastrar Usuario");
 			System.out.println("[0] Sair");
 			System.out.print("Escolha uma Opcao: ");
 			op = entrada.nextInt();
@@ -269,7 +249,48 @@ public class Main {
 					System.out.println("----------------------------------------");	
 				}
 				break;
+			case 4:
+				String nome;
+				String cpf;
+				String login;
+				String email;
+				String senha;
+				int idade;
+
 				
+				System.out.print("Digite seu nome: ");
+				nome = entrada.next();
+				
+				System.out.print("Digite sua idade: ");
+				idade = entrada.nextInt();
+				
+				System.out.print("Digite seu cpf: ");
+				cpf = entrada.next();
+				
+				System.out.print("Digite seu login: ");
+				login = entrada.next();
+				
+				System.out.print("Digite seu email: ");
+				email = entrada.next();
+				
+				System.out.print("Digite sua senha: ");
+				senha = entrada.next();
+				
+				int iAluno = 0;
+				for(Aluno i: aluno) {
+					if(iAluno < aluno.length) {
+						if(i == null) {
+							aluno[iAluno] = new Aluno(nome, idade, cpf, login, email, senha);
+							break;
+						}
+						iAluno += 1;
+					}else {
+						System.out.println("Desculpe, ainda somos um empresa pobre");
+						System.out.println("Nosso BD só suporta até 5 Alunos :(");
+					}
+				}
+				
+				break;
 			default:
 				break;
 			}//Fecha primeiro Switch
