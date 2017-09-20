@@ -17,6 +17,9 @@ public class Main {
 		Aluno aluno[] = new Aluno[5];
 		aluno[0] = new Aluno("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345");
 		aluno[1] = new Aluno("Denys", 97, "255548", "denys", "denys@email.com", "12345");
+		aluno[2] = new Aluno("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345");
+		aluno[3] = new Aluno("Denys", 97, "255548", "denys", "denys@email.com", "12345");
+		aluno[4] = new Aluno("Denys", 97, "255548", "denys", "denys@email.com", "12345");
 		
 		Administrador admin[] = new Administrador[2];
 		admin[0] = new Administrador("Nickson", "dnick", "nickson@admin.com", "123545");
@@ -80,10 +83,10 @@ public class Main {
 		
 		do {
 			
-			System.out.println("[1] Escolher Usuario");
+			System.out.println("[1] Escolher Aluno");
 			System.out.println("[2] Fazer Cadastro");
 			System.out.println("[3] Fazer Login");
-			System.out.println("[4] Cadastrar Usuario");
+			System.out.println("[4] Cadastrar Novo Aluno");
 			System.out.println("[0] Sair");
 			System.out.print("Escolha uma Opcao: ");
 			op = entrada.nextInt();
@@ -277,17 +280,23 @@ public class Main {
 				senha = entrada.next();
 				
 				int iAluno = 0;
+				int teste = aluno.length;
 				for(Aluno i: aluno) {
-					if(iAluno < aluno.length) {
+	
 						if(i == null) {
 							aluno[iAluno] = new Aluno(nome, idade, cpf, login, email, senha);
+							System.out.println("----------------------------------------");		
+							System.out.println("Aluno criado com Sucesso!");
+							System.out.println("----------------------------------------");		
+							break;
+						}else if(iAluno == teste -1 && i != null) {
+							System.out.println("----------------------------------------");		
+							System.out.println("Desculpe, ainda somos uma empresa pobre");
+							System.out.println("Nosso BD só suporta até 5 Alunos :(");
+							System.out.println("----------------------------------------");		
 							break;
 						}
 						iAluno += 1;
-					}else {
-						System.out.println("Desculpe, ainda somos um empresa pobre");
-						System.out.println("Nosso BD só suporta até 5 Alunos :(");
-					}
 				}
 				
 				break;
