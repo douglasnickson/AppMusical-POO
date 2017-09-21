@@ -75,6 +75,7 @@ public class Main {
 		int op4 = -1;
 		int op5 = -1;
 		int opAluno = -1;
+		int opAdmin = -1;
 		int opMod = -1;
 		int opAss = -1;
 		int opExe = -1;
@@ -95,29 +96,55 @@ public class Main {
 			
 			switch (op) {
 			case 1:
-				System.out.println("[1] Escolha um Administrador");
-				System.out.println("[2] Fazer Cadastro");
-				System.out.println("[3] Fazer Login");
-				System.out.println("[0] Sair");
-				System.out.println("Escolha uma Opcao: ");
-				op5 = entrada.nextInt();
 				
-				switch (op5) {
-				case 1:
+				do {
+					System.out.println("[1] Escolha um Administrador");
+					System.out.println("[2] Fazer Cadastro");
+					System.out.println("[3] Fazer Login");
+					System.out.println("[0] Sair");
+					System.out.print("Escolha uma Opcao: ");
+					op5 = entrada.nextInt();
 					
-					break;
-				
-				case 2:
+					switch (op5) {
+					case 1:
+						int index = 0;
+						for(Administrador i: admin) {
+							if(i != null) {
+								System.out.println("["+ index + "] " +i.getNome());
+								index += 1;
+							}else{
+								break;
+							}
+						}
+						System.out.print("Escolha um Administrador: ");
+						opAdmin = entrada.nextInt();
+						System.out.println("----------------------------------------");		
+						break;
 					
-					break;
+					case 2:
+						if(opAdmin >= 0) {
+							admin[opAdmin].fazCadastro(gerenciamento);
+						}else {
+							System.out.println("Escolha um Administrador para Cadastrar!");
+							System.out.println("----------------------------------------");	
+						}
+						break;
+						
+					case 3:
+						if(opAdmin >= 0) {
+							if(admin[opAdmin].getCadastro()) {
+								System.out.println("Tem Cadastro Uhull!!");
+							}
+						}else {
+							System.out.println("Escolha um Administrador para Logar!");
+						}
+						break;
+						
+					default:
+						break;
+					}
 					
-				case 3:
-					
-					break;
-					
-				default:
-					break;
-				}
+				}while(op5 > 0);
 				
 				break;
 			case 2:
