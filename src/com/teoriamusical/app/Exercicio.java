@@ -25,6 +25,4 @@ public class Exercicio extends Conteudo{
 		this.comentarios = comentarios;
 	}
 	
-	
-	
 }

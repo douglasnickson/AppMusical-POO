@@ -68,4 +68,12 @@ public class Assunto extends Conteudo{
 		media = soma/total;
 		this.setAvaliacao(media);
 	}
+	
+	public boolean verificaConcluido(int exercicio) {
+		if(this.exercicio.get(exercicio).getConcluido()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

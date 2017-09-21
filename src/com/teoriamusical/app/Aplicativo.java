@@ -83,5 +83,13 @@ public class Aplicativo implements AcoesAplicativo{
 			System.out.println("----------------------------------------");
 		}
 	}
+	
+	public boolean verificaConcluido(int assunto, int exercicio) {
+			if(this.modulo.verificaConcluido(assunto, exercicio)) {
+				return true;
+			}else {
+				return false;
+			}
+	}
 
 }

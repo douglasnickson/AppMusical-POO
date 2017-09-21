@@ -79,8 +79,13 @@ public class Modulo extends Conteudo{
 		}
 	}
 	
-	
-
+	public boolean verificaConcluido(int assunto, int exercicio) {
+		if(this.assunto.get(assunto).verificaConcluido(exercicio)) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	public ArrayList<Assunto> getAssunto() {
 		return assunto;
 	}

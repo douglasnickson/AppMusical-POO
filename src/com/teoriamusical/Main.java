@@ -182,16 +182,26 @@ public class Main {
 										break;
 									case 2:
 										String comentario;
-										System.out.print("Digite o Comentario: ");
-										comentario = entrada.next();
-										app.fazerComentario(opAss, opExe, comentario);
-										System.out.println("----------------------------------------");
+										if(app.verificaConcluido(opAss, opExe)) {
+											System.out.print("Digite o Comentario: ");
+											comentario = entrada.next();
+											app.fazerComentario(opAss, opExe, comentario);
+											System.out.println("----------------------------------------");	
+										}else {
+											System.out.println("Conclua o Exercicio antes de Comentar! ");
+											System.out.println("----------------------------------------");			
+										}
 										break;
 									case 3:
-										System.out.print("Digite a Nota: ");
-										float avaliacao = entrada.nextFloat();
-										app.fazerAvaliacao(opAss, opExe, avaliacao);
-										System.out.println("----------------------------------------");
+										if(app.verificaConcluido(opAss, opExe)) {
+											System.out.print("Digite a Nota: ");
+											float avaliacao = entrada.nextFloat();
+											app.fazerAvaliacao(opAss, opExe, avaliacao);
+											System.out.println("----------------------------------------");
+										}else {
+											System.out.println("Conclua o Exercicio antes de Avaliar! ");
+											System.out.println("----------------------------------------");	
+										}
 										break;
 										
 									default:
@@ -217,6 +227,7 @@ public class Main {
 								break;
 							case 5:
 								app.gerarCertificado();
+								System.out.println("----------------------------------------");
 								break;
 								
 							case 6:
