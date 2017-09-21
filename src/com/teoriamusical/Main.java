@@ -73,6 +73,7 @@ public class Main {
 		int op2 = -1;
 		int op3 = -1;
 		int op4 = -1;
+		int op5 = -1;
 		int opAluno = -1;
 		int opMod = -1;
 		int opAss = -1;
@@ -94,6 +95,29 @@ public class Main {
 			
 			switch (op) {
 			case 1:
+				System.out.println("[1] Escolha um Administrador");
+				System.out.println("[2] Fazer Cadastro");
+				System.out.println("[3] Fazer Login");
+				System.out.println("[0] Sair");
+				System.out.println("Escolha uma Opcao: ");
+				op5 = entrada.nextInt();
+				
+				switch (op5) {
+				case 1:
+					
+					break;
+				
+				case 2:
+					
+					break;
+					
+				case 3:
+					
+					break;
+					
+				default:
+					break;
+				}
 				
 				break;
 			case 2:
