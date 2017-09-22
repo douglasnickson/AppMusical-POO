@@ -21,7 +21,7 @@ public class Main {
 		aluno[3] = new Aluno("Denys", 97, "255548", "denys", "denys@email.com", "12345");
 		aluno[4] = new Aluno("Denys", 97, "255548", "denys", "denys@email.com", "12345");
 		
-		Administrador admin[] = new Administrador[2];
+		Administrador admin[] = new Administrador[5];
 		admin[0] = new Administrador("Nickson", "dnick", "nickson@admin.com", "123545");
 		admin[1] = new Administrador("Elen", "evitoria", "elenvitoria@email.com", "123456");
 		
@@ -74,6 +74,7 @@ public class Main {
 		int op3 = -1;
 		int op4 = -1;
 		int op5 = -1;
+		int op6 = -1;
 		int opAluno = -1;
 		int opAdmin = -1;
 		int opMod = -1;
@@ -99,12 +100,12 @@ public class Main {
 				
 				do {
 					System.out.println("[1] Escolha um Administrador");
-					System.out.println("[2] Fazer Cadastro");
-					System.out.println("[3] Fazer Login");
+					System.out.println("[2] Fazer Login");
 					System.out.println("[0] Sair");
 					System.out.print("Escolha uma Opcao: ");
 					op5 = entrada.nextInt();
-					
+					System.out.println("----------------------------------------");		
+
 					switch (op5) {
 					case 1:
 						int index = 0;
@@ -120,21 +121,74 @@ public class Main {
 						opAdmin = entrada.nextInt();
 						System.out.println("----------------------------------------");		
 						break;
-					
+						
 					case 2:
 						if(opAdmin >= 0) {
-							admin[opAdmin].fazCadastro(gerenciamento);
-						}else {
-							System.out.println("Escolha um Administrador para Cadastrar!");
-							System.out.println("----------------------------------------");	
-						}
-						break;
+							
+							do {
+								
+								System.out.println("[1] Cadastrar um Administrador");
+								System.out.println("[2] Cadastrar Modulo");
+								System.out.println("[3] Cadastrar Assunto");
+								System.out.println("[4] Cadastrar Exercicio");
+								System.out.println("[0] Sair");
+								System.out.print("Escolha uma Opcao: ");
+								op6 = entrada.nextInt();
+								System.out.println("----------------------------------------");
+								
+								switch (op6) {
+								case 1:
+									
+									System.out.print("Digite o Nome: ");
+									String nome = entrada.next();
+									
+									System.out.print("Digite o Login: ");
+									String login = entrada.next();
+									
+									System.out.print("Digite o Email: ");
+									String email = entrada.next();
+									
+									System.out.print("Digite o Senha: ");
+									String senha = entrada.next();
+									
+									int iAdmin = 0;
+									int total_admin = admin.length;
+									for(Administrador i: admin) {
 						
-					case 3:
-						if(opAdmin >= 0) {
-							if(admin[opAdmin].getCadastro()) {
-								System.out.println("Tem Cadastro Uhull!!");
-							}
+											if(i == null) {
+												admin[iAdmin] = new Administrador(nome, login, email, senha);
+												gerenciamento.cadastroAdministrador(admin[opAdmin], admin[iAdmin]);
+												System.out.println("----------------------------------------");		
+												System.out.println("Administrador cadastrado com Sucesso!");
+												System.out.println("----------------------------------------");		
+												break;
+											}else if(iAdmin == total_admin -1 && i != null) {
+												System.out.println("----------------------------------------");		
+												System.out.println("Desculpe, ainda somos uma empresa pobre");
+												System.out.println("Nosso BD só suporta até 5 Adminstradores :(");
+												System.out.println("----------------------------------------");		
+												break;
+											}
+											iAdmin += 1;
+									}
+									
+									break;
+								
+								case 2:
+									break;
+									
+								case 3:
+									break;
+									
+								case 4:
+									break;
+									
+								default:
+									break;
+								}
+								
+							}while(op6 > 0);
+							
 						}else {
 							System.out.println("Escolha um Administrador para Logar!");
 						}
@@ -357,7 +411,7 @@ public class Main {
 						senha = entrada.next();
 						
 						int iAluno = 0;
-						int teste = aluno.length;
+						int total_aluno = aluno.length;
 						for(Aluno i: aluno) {
 			
 								if(i == null) {
@@ -366,7 +420,7 @@ public class Main {
 									System.out.println("Aluno criado com Sucesso!");
 									System.out.println("----------------------------------------");		
 									break;
-								}else if(iAluno == teste -1 && i != null) {
+								}else if(iAluno == total_aluno -1 && i != null) {
 									System.out.println("----------------------------------------");		
 									System.out.println("Desculpe, ainda somos uma empresa pobre");
 									System.out.println("Nosso BD só suporta até 5 Alunos :(");
