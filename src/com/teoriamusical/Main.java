@@ -80,6 +80,10 @@ public class Main {
 		int opMod = -1;
 		int opAss = -1;
 		int opExe = -1;
+		int cadAssunto = -1;
+		String nome_conteudo;
+		boolean premium;
+		boolean ativo;
 		
 		System.out.println("----------------------------------------");
 		System.out.println("            BEM VINDO AO APP            ");
@@ -165,7 +169,7 @@ public class Main {
 											}else if(iAdmin == total_admin -1 && i != null) {
 												System.out.println("----------------------------------------");		
 												System.out.println("Desculpe, ainda somos uma empresa pobre");
-												System.out.println("Nosso BD só suporta até 5 Adminstradores :(");
+												System.out.println("Nosso BD so suporta ate 5 Adminstradores :(");
 												System.out.println("----------------------------------------");		
 												break;
 											}
@@ -176,20 +180,20 @@ public class Main {
 								
 								case 2:
 									System.out.print("Digite o Nome do Modulo: ");
-									String modulo_nome = entrada.next();
-									
-									System.out.print("Modulo Ativo? True ou False ");
-									boolean ativo = entrada.nextBoolean();
+									nome_conteudo = entrada.next();
 									
 									System.out.print("Modulo Para Assinantes? True ou False ");
-									boolean premium = entrada.nextBoolean();
+									premium = entrada.nextBoolean();
+									
+									System.out.print("Modulo Ativo? True ou False ");
+									ativo = entrada.nextBoolean();
 									
 									int iModulo = 0;
 									int total_modulo = admin.length;
-									for(Administrador i: admin) {
+									for(Modulo i: modulo) {
 						
 											if(i == null) {
-												modulo[iModulo] = new Modulo(modulo_nome, ativo, premium);
+												modulo[iModulo] = new Modulo(nome_conteudo, ativo, premium);
 												gerenciamento.cadastrarModulo(admin[opAdmin], modulo[iModulo]);
 												System.out.println("----------------------------------------");		
 												System.out.println("Modulo cadastrado com Sucesso!");
@@ -198,7 +202,7 @@ public class Main {
 											}else if(iModulo == total_modulo -1 && i != null) {
 												System.out.println("----------------------------------------");		
 												System.out.println("Desculpe, ainda somos uma empresa pobre");
-												System.out.println("Nosso BD só suporta até 10 Modulos :(");
+												System.out.println("Nosso BD so suporta ate 10 Modulos :(");
 												System.out.println("----------------------------------------");		
 												break;
 											}
@@ -208,6 +212,41 @@ public class Main {
 									break;
 									
 								case 3:
+									
+									gerenciamento.listarModulos();
+									System.out.print("Escolhe um Modulo: ");
+									iModulo = entrada.nextInt();
+									
+									System.out.print("Digite o nome do Assunto: ");
+									nome_conteudo = entrada.next();
+									
+									System.out.print("E para Assinantes? true ou false: ");
+									premium = entrada.nextBoolean();
+									
+									System.out.print("Ativar o Assunto? true ou false: ");
+									ativo = entrada.nextBoolean();
+									
+									int iAssunto = 0;
+									int total_assunto = assunto.length;
+									for(Assunto i: assunto) {
+										if(i == null) {
+											assunto[iAssunto] = new Assunto(nome_conteudo, ativo, premium);
+											gerenciamento.cadastrarAssunto(admin[opAdmin], gerenciamento.buscarModulo(iModulo), assunto[iAssunto]);
+											System.out.println("----------------------------------------");		
+											System.out.println("Assunto cadastrado com Sucesso!");
+											System.out.println("----------------------------------------");		
+											break;
+										}else if(iAssunto == total_assunto -1 && i != null) {
+											System.out.println("----------------------------------------");		
+											System.out.println("Desculpe, ainda somos uma empresa pobre");
+											System.out.println("Nosso BD so suporta ate 10 Assuntos :(");
+											System.out.println("----------------------------------------");		
+											break;
+										}
+										iAssunto += 1;
+									}
+									
+									
 									break;
 									
 								case 4:
@@ -453,7 +492,7 @@ public class Main {
 								}else if(iAluno == total_aluno -1 && i != null) {
 									System.out.println("----------------------------------------");		
 									System.out.println("Desculpe, ainda somos uma empresa pobre");
-									System.out.println("Nosso BD só suporta até 5 Alunos :(");
+									System.out.println("Nosso BD so suporta ate 5 Alunos :(");
 									System.out.println("----------------------------------------");		
 									break;
 								}
