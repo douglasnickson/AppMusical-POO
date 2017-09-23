@@ -175,6 +175,36 @@ public class Main {
 									break;
 								
 								case 2:
+									System.out.print("Digite o Nome do Modulo: ");
+									String modulo_nome = entrada.next();
+									
+									System.out.print("Modulo Ativo? True ou False ");
+									boolean ativo = entrada.nextBoolean();
+									
+									System.out.print("Modulo Para Assinantes? True ou False ");
+									boolean premium = entrada.nextBoolean();
+									
+									int iModulo = 0;
+									int total_modulo = admin.length;
+									for(Administrador i: admin) {
+						
+											if(i == null) {
+												modulo[iModulo] = new Modulo(modulo_nome, ativo, premium);
+												gerenciamento.cadastrarModulo(admin[opAdmin], modulo[iModulo]);
+												System.out.println("----------------------------------------");		
+												System.out.println("Modulo cadastrado com Sucesso!");
+												System.out.println("----------------------------------------");		
+												break;
+											}else if(iModulo == total_modulo -1 && i != null) {
+												System.out.println("----------------------------------------");		
+												System.out.println("Desculpe, ainda somos uma empresa pobre");
+												System.out.println("Nosso BD só suporta até 10 Modulos :(");
+												System.out.println("----------------------------------------");		
+												break;
+											}
+											iModulo += 1;
+									}
+									
 									break;
 									
 								case 3:
