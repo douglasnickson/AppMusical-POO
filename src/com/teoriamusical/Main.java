@@ -286,7 +286,7 @@ public class Main {
 											System.out.println("----------------------------------------");		
 											break;
 										}
-										iAssunto += 1;
+										iExercicio += 1;
 									}
 									
 									break;
