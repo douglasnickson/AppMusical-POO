@@ -23,6 +23,9 @@ public abstract class Usuario extends Pessoa{
 	
 	public Usuario(String nome, String login, String email, String senha) {
 		super(nome);
+		this.login = login;
+		this.email = email;
+		this.senha = senha;
 		this.status = false;
 		this.tipo_usuario = 1;
 		this.tem_cadastro = false;

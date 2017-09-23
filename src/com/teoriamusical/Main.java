@@ -17,9 +17,6 @@ public class Main {
 		Aluno aluno[] = new Aluno[5];
 		aluno[0] = new Aluno("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345");
 		aluno[1] = new Aluno("Denys", 97, "255548", "denys", "denys@email.com", "12345");
-		aluno[2] = new Aluno("Douglas", 25, "12345", "douglas", "douglas@gmail.com", "12345");
-		aluno[3] = new Aluno("Denys", 97, "255548", "denys", "denys@email.com", "12345");
-		aluno[4] = new Aluno("Denys", 97, "255548", "denys", "denys@email.com", "12345");
 		
 		Administrador admin[] = new Administrador[5];
 		admin[0] = new Administrador("Nickson", "dnick", "nickson@admin.com", "123545");
@@ -43,7 +40,6 @@ public class Main {
 		
 		Gerenciamento gerenciamento = new Gerenciamento();
 		admin[0].fazCadastro(gerenciamento);
-		admin[0].fazLogin();
 		
 		gerenciamento.cadastrarModulo(admin[0], modulo[0]);
 		gerenciamento.cadastrarModulo(admin[0], modulo[1]);
@@ -80,7 +76,6 @@ public class Main {
 		int opMod = -1;
 		int opAss = -1;
 		int opExe = -1;
-		int cadAssunto = -1;
 		String nome_conteudo;
 		boolean premium;
 		boolean ativo;
@@ -89,13 +84,13 @@ public class Main {
 		System.out.println("            BEM VINDO AO APP            ");
 		System.out.println("----------------------------------------");
 		
+		
 		do {
 			
-			System.out.println("Voce e: ");
 			System.out.println("[1] Administrador");
 			System.out.println("[2] Aluno");
 			System.out.println("[0] Sair");
-			System.out.print("Escolha uma Opcao: ");
+			System.out.print("Escolha um tipo de usuario: ");
 			op = entrada.nextInt();
 			System.out.println("----------------------------------------");
 			
@@ -103,7 +98,7 @@ public class Main {
 			case 1:
 				
 				do {
-					System.out.println("[1] Escolha um Administrador");
+					System.out.println("[1] Escolher Administrador");
 					System.out.println("[2] Fazer Login");
 					System.out.println("[0] Sair");
 					System.out.print("Escolha uma Opcao: ");
@@ -128,13 +123,14 @@ public class Main {
 						
 					case 2:
 						if(opAdmin >= 0) {
-							
+							admin[opAdmin].fazLogin();
 							do {
-								
+																
 								System.out.println("[1] Cadastrar um Administrador");
 								System.out.println("[2] Cadastrar Modulo");
 								System.out.println("[3] Cadastrar Assunto");
 								System.out.println("[4] Cadastrar Exercicio");
+								System.out.println("[5] Mostrar Perfil");
 								System.out.println("[0] Sair");
 								System.out.print("Escolha uma Opcao: ");
 								op6 = entrada.nextInt();
@@ -290,7 +286,10 @@ public class Main {
 									}
 									
 									break;
-									
+								case 5:
+									System.out.println(admin[opAdmin].toString());
+									System.out.println("----------------------------------------");
+									break;
 								default:
 									break;
 								}
@@ -299,6 +298,7 @@ public class Main {
 							
 						}else {
 							System.out.println("Escolha um Administrador para Logar!");
+							System.out.println("----------------------------------------");
 						}
 						break;
 						
