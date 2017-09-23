@@ -71,6 +71,17 @@ public class Gerenciamento implements AcoesGerenciamento{
 		
 	}
 	
+	
+	public void cadastrarExercicio(Administrador admin, Modulo modulo, int assunto, Exercicio exercicio) {
+		if(admin.getTipoUsuario() == 1) {
+			this.exercicio.add(exercicio);
+			modulo.buscarAssunto(assunto).cadastrarExercicio(exercicio);
+		}else {
+			System.out.println("Apenas Administradores podem Cadastrar Exercicios!");
+		}
+		
+	}
+	
 	@Override
 	public void listarExercicio() {
 		for (Exercicio i: exercicio) {

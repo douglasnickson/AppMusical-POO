@@ -86,6 +86,12 @@ public class Modulo extends Conteudo{
 			return false;
 		}
 	}
+	
+
+	public Assunto buscarAssunto(int index) {
+		return this.assunto.get(index);
+	}
+	
 	public ArrayList<Assunto> getAssunto() {
 		return assunto;
 	}

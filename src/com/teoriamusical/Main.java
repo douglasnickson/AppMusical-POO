@@ -250,6 +250,45 @@ public class Main {
 									break;
 									
 								case 4:
+									
+									gerenciamento.listarModulos();
+									System.out.print("Escolhe um Modulo: ");
+									iModulo = entrada.nextInt();
+									
+									gerenciamento.buscarModulo(iModulo).mostrarAssuntos();
+									System.out.print("Escolhe um Assunto: ");
+									iAssunto = entrada.nextInt();
+									
+									System.out.print("Digite o nome do Exercicio: ");
+									nome_conteudo = entrada.next();
+									
+									System.out.print("E para Assinantes? true ou false: ");
+									premium = entrada.nextBoolean();
+									
+									System.out.print("Ativar o Exercicio? true ou false: ");
+									ativo = entrada.nextBoolean();
+									
+									int iExercicio = 0;
+									int total_exercicio = assunto.length;
+									for(Exercicio i: exercicio) {
+										if(i == null) {
+											exercicio[iExercicio] = new Exercicio(nome_conteudo, ativo, premium);
+											
+											gerenciamento.cadastrarExercicio(admin[opAdmin], gerenciamento.buscarModulo(iModulo), iAssunto, exercicio[iExercicio]);
+											System.out.println("----------------------------------------");		
+											System.out.println("Exercicio cadastrado com Sucesso!");
+											System.out.println("----------------------------------------");		
+											break;
+										}else if(iAssunto == total_exercicio -1 && i != null) {
+											System.out.println("----------------------------------------");		
+											System.out.println("Desculpe, ainda somos uma empresa pobre");
+											System.out.println("Nosso BD so suporta ate 10 Exercicios :(");
+											System.out.println("----------------------------------------");		
+											break;
+										}
+										iAssunto += 1;
+									}
+									
 									break;
 									
 								default:
