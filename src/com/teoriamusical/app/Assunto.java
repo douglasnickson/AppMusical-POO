@@ -23,8 +23,13 @@ public class Assunto extends Conteudo{
 	public void mostrarExercicios() {
 		System.out.println("SELECIONE O EXERCICIO");
 		System.out.println("----------------------------------------");
-		for (int i =0; i<exercicio.size(); i++) {
-			System.out.println("["+i+"] " + exercicio.get(i).getNome());
+		if(exercicio.isEmpty()) {
+			System.out.println("Nenhum Exercicio Cadastrado!");
+			System.out.println("Digite (-1) para voltar!");
+		}else {
+			for (int i =0; i<exercicio.size(); i++) {
+				System.out.println("["+i+"] " + exercicio.get(i).getNome());
+			}
 		}
 		System.out.println("----------------------------------------");
 	}

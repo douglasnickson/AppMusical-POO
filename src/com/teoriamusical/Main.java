@@ -108,6 +108,7 @@ public class Main {
 					switch (op5) {
 					case 1:
 						int index = 0;
+						
 						for(Administrador i: admin) {
 							if(i != null) {
 								System.out.println("["+ index + "] " +i.getNome());
@@ -116,9 +117,22 @@ public class Main {
 								break;
 							}
 						}
-						System.out.print("Escolha um Administrador: ");
-						opAdmin = entrada.nextInt();
-						System.out.println("----------------------------------------");		
+						
+						do {
+							System.out.print("Escolha um Administrador: ");
+							opAdmin = entrada.nextInt();
+							
+							if(opAdmin > index - 1 || opAdmin < 0) {
+								System.out.println("----------------------------------------");	
+								System.out.println("Escolha uma opcao valida!");
+								System.out.println("----------------------------------------");	
+
+							}
+							
+							
+						}while(opAdmin > index - 1 || opAdmin < 0);
+						
+						System.out.println("----------------------------------------");	
 						break;
 						
 					case 2:
@@ -144,13 +158,13 @@ public class Main {
 									String nome = entrada.nextLine();
 									
 									System.out.print("Digite o Login: ");
-									String login = entrada.next().replaceAll("\\s","");
-									
+									String login = entrada.nextLine().replaceAll("\\s","");
+
 									System.out.print("Digite o Email: ");
-									String email = entrada.next().replaceAll("\\s","");
+									String email = entrada.nextLine().replaceAll("\\s","");
 									
 									System.out.print("Digite o Senha: ");
-									String senha = entrada.next().replaceAll("\\s","");
+									String senha = entrada.nextLine().replaceAll("\\s","");
 									
 									int iAdmin = 0;
 									int total_admin = admin.length;
@@ -378,6 +392,13 @@ public class Main {
 										System.out.println("----------------------------------------");
 									}
 									
+									if (gerenciamento.buscarModulo(opMod).getPremium()) {
+										System.out.println("Apenas Assinantes Podem Acessar esse Modulo!");
+										System.out.println("Escolha outro Modulo, ou Assine o Premium!");
+										System.out.println("----------------------------------------");
+										achouModulo = false;
+									}
+									
 								}while(achouModulo == false);
 								
 								Aplicativo app = new Aplicativo(aluno[opAluno], gerenciamento.buscarModulo(opMod));
@@ -398,16 +419,23 @@ public class Main {
 									case 1:
 										
 										app.acessarModulo();
-
 										System.out.print("Escolha Um Assunto: ");
 										opAss = entrada.nextInt();
 										System.out.println("----------------------------------------");
 										
-										app.acessarAssunto(opAss);
-										System.out.print("Escolha um Exercicio: ");
-										opExe = entrada.nextInt();
+										if(opAss >= 0) {
+											app.acessarAssunto(opAss);
+											System.out.print("Escolha um Exercicio: ");
+											opExe = entrada.nextInt();
+											System.out.println("----------------------------------------");
+										}
+										
 										
 										do {
+											
+											if(opAss < 0 || opExe < 0) {
+												break;
+											}
 											
 											System.out.println("[1] Fazer Exercicio");
 											System.out.println("[2] Fazer Comentario");
@@ -428,6 +456,7 @@ public class Main {
 													entrada.nextLine();
 													comentario = entrada.nextLine();
 													app.fazerComentario(opAss, opExe, comentario);
+													System.out.println("Comentado com Sucesso!");
 													System.out.println("----------------------------------------");	
 												}else {
 													System.out.println("Conclua o Exercicio antes de Comentar! ");
@@ -439,6 +468,7 @@ public class Main {
 													System.out.print("Digite a Nota: ");
 													float avaliacao = entrada.nextFloat();
 													app.fazerAvaliacao(opAss, opExe, avaliacao);
+													System.out.println("Avaliado com Sucesso!");
 													System.out.println("----------------------------------------");
 												}else {
 													System.out.println("Conclua o Exercicio antes de Avaliar! ");
