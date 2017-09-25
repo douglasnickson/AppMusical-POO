@@ -140,16 +140,17 @@ public class Main {
 								case 1:
 									
 									System.out.print("Digite o Nome: ");
-									String nome = entrada.next();
+									entrada.nextLine();
+									String nome = entrada.nextLine();
 									
 									System.out.print("Digite o Login: ");
-									String login = entrada.next();
+									String login = entrada.next().replaceAll("\\s","");
 									
 									System.out.print("Digite o Email: ");
-									String email = entrada.next();
+									String email = entrada.next().replaceAll("\\s","");
 									
 									System.out.print("Digite o Senha: ");
-									String senha = entrada.next();
+									String senha = entrada.next().replaceAll("\\s","");
 									
 									int iAdmin = 0;
 									int total_admin = admin.length;
@@ -176,7 +177,8 @@ public class Main {
 								
 								case 2:
 									System.out.print("Digite o Nome do Modulo: ");
-									nome_conteudo = entrada.next();
+									entrada.nextLine();
+									nome_conteudo = entrada.nextLine();
 									
 									System.out.print("Modulo Para Assinantes? True ou False ");
 									premium = entrada.nextBoolean();
@@ -214,7 +216,8 @@ public class Main {
 									iModulo = entrada.nextInt();
 									
 									System.out.print("Digite o nome do Assunto: ");
-									nome_conteudo = entrada.next();
+									entrada.nextLine();
+									nome_conteudo = entrada.nextLine();
 									
 									System.out.print("E para Assinantes? true ou false: ");
 									premium = entrada.nextBoolean();
@@ -248,15 +251,16 @@ public class Main {
 								case 4:
 									
 									gerenciamento.listarModulos();
-									System.out.print("Escolhe um Modulo: ");
+									System.out.print("Escolha um Modulo: ");
 									iModulo = entrada.nextInt();
 									
 									gerenciamento.buscarModulo(iModulo).mostrarAssuntos();
-									System.out.print("Escolhe um Assunto: ");
+									System.out.print("Escolha um Assunto: ");
 									iAssunto = entrada.nextInt();
 									
 									System.out.print("Digite o nome do Exercicio: ");
-									nome_conteudo = entrada.next();
+									entrada.nextLine();
+									nome_conteudo = entrada.nextLine();
 									
 									System.out.print("E para Assinantes? true ou false: ");
 									premium = entrada.nextBoolean();
@@ -331,8 +335,17 @@ public class Main {
 								break;
 							}
 						}
-						System.out.print("Escolha um Usuario: ");
-						opAluno = entrada.nextInt();
+						do {
+							System.out.print("Escolha um Aluno: ");
+							opAluno = entrada.nextInt();
+							
+							if(opAluno > index - 1 || opAluno < 0) {
+								System.out.println("----------------------------------------");		
+								System.out.println("Escolha uma opcao valida");
+								System.out.println("----------------------------------------");		
+							}
+						}while(opAluno > index -1 || opAluno < 0);
+						
 						System.out.println("----------------------------------------");		
 						break;
 						
@@ -340,7 +353,7 @@ public class Main {
 						if(opAluno >= 0) {
 							aluno[opAluno].fazCadastro(gerenciamento);
 						}else {
-							System.out.println("Escolha um Usuario para Cadastrar!");
+							System.out.println("Escolha um Aluno para Cadastrar!");
 							System.out.println("----------------------------------------");	
 						}
 						break;
@@ -412,7 +425,8 @@ public class Main {
 												String comentario;
 												if(app.verificaConcluido(opAss, opExe)) {
 													System.out.print("Digite o Comentario: ");
-													comentario = entrada.next();
+													entrada.nextLine();
+													comentario = entrada.nextLine();
 													app.fazerComentario(opAss, opExe, comentario);
 													System.out.println("----------------------------------------");	
 												}else {
@@ -501,22 +515,24 @@ public class Main {
 
 						
 						System.out.print("Digite seu nome: ");
-						nome = entrada.next();
-						
+				        entrada.nextLine();
+				        nome = entrada.nextLine();
+				        
 						System.out.print("Digite sua idade: ");
 						idade = entrada.nextInt();
 						
 						System.out.print("Digite seu cpf: ");
-						cpf = entrada.next();
+						cpf = entrada.next().replaceAll("\\s","");
 						
 						System.out.print("Digite seu login: ");
-						login = entrada.next();
+						login = entrada.next().replaceAll("\\s","");
 						
 						System.out.print("Digite seu email: ");
-						email = entrada.next();
+						email = entrada.next().replaceAll("\\s","");
 						
 						System.out.print("Digite sua senha: ");
-						senha = entrada.next();
+						senha = entrada.next().replaceAll("\\s","");
+
 						
 						int iAluno = 0;
 						int total_aluno = aluno.length;

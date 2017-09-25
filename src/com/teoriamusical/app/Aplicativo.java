@@ -76,11 +76,9 @@ public class Aplicativo implements AcoesAplicativo{
 				modulo.mostrarAssuntos();	
 			}else {
 				System.out.println("Voce deve concluir o modulo antes!");
-				System.out.println("----------------------------------------");
 			}
 		}else {
 			System.out.println("Apenas Assinantes podem Gerar Certificado!");
-			System.out.println("----------------------------------------");
 		}
 	}
 	

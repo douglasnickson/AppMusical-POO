@@ -25,8 +25,12 @@ public class Modulo extends Conteudo{
 	public void mostrarAssuntos() {
 		System.out.println("SELECIONE O ASSUNTO");
 		System.out.println("----------------------------------------");
-		for (int i =0; i<assunto.size(); i++) {
-			System.out.println("["+i+"] " + assunto.get(i).getNome());
+		if(assunto.isEmpty()) {
+			System.out.println("Nenhum Assunto Cadastrado");
+		}else {
+			for (int i =0; i<assunto.size(); i++) {
+				System.out.println("["+i+"] " + assunto.get(i).getNome());
+			}
 		}
 		System.out.println("----------------------------------------");
 	}
